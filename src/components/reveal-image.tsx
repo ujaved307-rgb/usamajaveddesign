@@ -15,6 +15,7 @@ export function RevealImage({
   alt,
   fit = "contain",
   aspect = "aspect-[4/3]",
+  bgClassName,
   className,
   priority,
   sizes = "(min-width: 1024px) 900px, 100vw",
@@ -25,6 +26,8 @@ export function RevealImage({
   alt: string;
   fit?: "contain" | "cover";
   aspect?: string;
+  /** Letterbox color behind a contain-fit image — replaces the bg-cream-2 default, doesn't stack with it. */
+  bgClassName?: string;
   className?: string;
   priority?: boolean;
   sizes?: string;
@@ -32,12 +35,11 @@ export function RevealImage({
   hoverScale?: boolean;
 }) {
   const shouldReduceMotion = useReducedMotion();
+  const background = fit === "contain" ? (bgClassName ?? "bg-cream-2") : "";
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl ${aspect} ${
-        fit === "contain" ? "bg-cream-2" : ""
-      } ${className ?? ""}`}
+      className={`relative overflow-hidden rounded-xl ${aspect} ${background} ${className ?? ""}`}
     >
       <motion.div
         initial={{ scale: fit === "cover" ? 1.08 : 1.04, opacity: 0 }}

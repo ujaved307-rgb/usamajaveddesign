@@ -71,7 +71,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
             src={block.src}
             alt={block.alt}
             aspect="aspect-[16/10]"
-            className={imageBg}
+            bgClassName={imageBg}
             sizes="(min-width: 1024px) 1000px, 100vw"
           />
           {block.caption && (
@@ -89,7 +89,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
               src={img.src}
               alt={img.alt}
               aspect="aspect-[4/3]"
-              className={imageBg}
+              bgClassName={imageBg}
               sizes="(min-width: 1024px) 500px, 100vw"
             />
           ))}
