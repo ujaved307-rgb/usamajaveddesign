@@ -36,6 +36,7 @@ export const homepage = {
     { name: "Dubai Holding" },
     { name: "Saudia Airlines", logo: "/logos/saudia.svg" },
     { name: "Careem", logo: "/logos/careem.png" },
+    { name: "ADNOC", logo: "/logos/adnoc.png" },
     { name: "Al Rajhi Bank" },
     { name: "Rogers", logo: "/logos/rogers.png" },
     { name: "CityNews", logo: "/logos/citynews.png" },
