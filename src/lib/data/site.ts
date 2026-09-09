@@ -28,11 +28,12 @@ export const homepage = {
     "Stakeholder Alignment",
   ],
   clients: [
-    { name: "Accenture", logo: "/logos/accenture.svg" },
+    { name: "Accenture", logo: "/logos/accenture.png" },
     { name: "TASMU", logo: "/logos/tasmu.png" },
     { name: "MCIT Qatar", logo: "/logos/mcit.png" },
     { name: "STC Kuwait", logo: "/logos/stc.png" },
     { name: "Royal Commission for Riyadh City", logo: "/logos/rcrc.png" },
+    { name: "Dubai Holding", logo: "/logos/dubai-holding.png" },
     { name: "Saudia Airlines", logo: "/logos/saudia.svg" },
     { name: "Careem", logo: "/logos/careem.png" },
     { name: "ADNOC", logo: "/logos/adnoc.png" },
