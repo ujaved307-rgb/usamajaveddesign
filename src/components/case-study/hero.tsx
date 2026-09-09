@@ -57,17 +57,16 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
         </div>
       </Reveal>
 
-      <div className="bg-charcoal">
-        <div className="mx-auto w-full max-w-6xl px-5 py-10 sm:px-8 sm:py-14">
-          <RevealImage
-            src={project.heroImage}
-            alt={`${project.title} — ${project.client}`}
-            aspect="aspect-[16/10] sm:aspect-[2/1]"
-            bgClassName="bg-charcoal-2"
-            priority
-            sizes="(min-width: 1280px) 1152px, 100vw"
-          />
-        </div>
+      <div className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20">
+        <RevealImage
+          src={project.heroImage}
+          alt={`${project.title} — ${project.client}`}
+          fit="cover"
+          aspect="aspect-[16/10] sm:aspect-[2/1]"
+          roundedClassName="rounded-lg"
+          priority
+          sizes="(min-width: 1280px) 1152px, 100vw"
+        />
       </div>
     </header>
   );

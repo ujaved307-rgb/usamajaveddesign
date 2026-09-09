@@ -5,7 +5,6 @@ import { RevealImage } from "@/components/reveal-image";
 export function BlockRenderer({ block, invert = false }: { block: Block; invert?: boolean }) {
   const dotColor = invert ? "bg-accent" : "bg-ink";
   const quoteBorder = invert ? "border-accent" : "border-ink";
-  const imageBg = invert ? "bg-charcoal-2" : "bg-cream-2";
 
   switch (block.type) {
     case "heading":
@@ -70,8 +69,9 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
           <RevealImage
             src={block.src}
             alt={block.alt}
+            fit="cover"
             aspect="aspect-[16/10]"
-            bgClassName={imageBg}
+            roundedClassName="rounded-lg"
             sizes="(min-width: 1024px) 1000px, 100vw"
           />
           {block.caption && (
@@ -88,8 +88,9 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
               key={i}
               src={img.src}
               alt={img.alt}
+              fit="cover"
               aspect="aspect-[4/3]"
-              bgClassName={imageBg}
+              roundedClassName="rounded-lg"
               sizes="(min-width: 1024px) 500px, 100vw"
             />
           ))}

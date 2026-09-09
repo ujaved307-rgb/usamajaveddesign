@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "motion/react";
 import { homepage, contact } from "@/lib/data/site";
 import { Magnetic } from "@/components/magnetic";
 import { StickerTags } from "@/components/sticker-tag";
+import { ClientMarquee } from "@/components/client-marquee";
 
 const lineVariants = {
   hidden: { y: "110%" },
@@ -100,29 +100,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1 }}
-        className="mt-16 border-y-2 border-ink py-5"
+        className="mt-16"
       >
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-5 sm:px-8">
-          {homepage.clients.map((c) =>
-            c.logo ? (
-              <Image
-                key={c.name}
-                src={c.logo}
-                alt={c.name}
-                width={110}
-                height={28}
-                className="h-6 w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 sm:h-7"
-              />
-            ) : (
-              <span
-                key={c.name}
-                className="text-sm font-semibold uppercase tracking-wide text-ink-3"
-              >
-                {c.name}
-              </span>
-            )
-          )}
-        </div>
+        <ClientMarquee clients={homepage.clients} />
       </motion.div>
     </section>
   );
