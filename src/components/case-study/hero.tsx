@@ -61,7 +61,6 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
         <RevealImage
           src={project.heroImage}
           alt={`${project.title} — ${project.client}`}
-          fit="cover"
           aspect="aspect-[16/10] sm:aspect-[2/1]"
           roundedClassName="rounded-lg"
           priority
