@@ -16,6 +16,7 @@ export function RevealImage({
   fit = "contain",
   aspect = "aspect-[4/3]",
   bgClassName,
+  roundedClassName = "rounded-xl",
   className,
   priority,
   sizes = "(min-width: 1024px) 900px, 100vw",
@@ -28,6 +29,8 @@ export function RevealImage({
   aspect?: string;
   /** Letterbox color behind a contain-fit image — replaces the bg-cream-2 default, doesn't stack with it. */
   bgClassName?: string;
+  /** Corner radius utility — replaces the rounded-xl default, doesn't stack with it. */
+  roundedClassName?: string;
   className?: string;
   priority?: boolean;
   sizes?: string;
@@ -39,7 +42,7 @@ export function RevealImage({
 
   return (
     <div
-      className={`relative overflow-hidden rounded-xl ${aspect} ${background} ${className ?? ""}`}
+      className={`relative overflow-hidden ${roundedClassName} ${aspect} ${background} ${className ?? ""}`}
     >
       <motion.div
         initial={{ scale: fit === "cover" ? 1.08 : 1.04, opacity: 0 }}
