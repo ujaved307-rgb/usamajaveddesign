@@ -310,8 +310,23 @@ export const tasmu: CaseStudy = {
       ],
     },
     {
+      id: "recognition",
+      kicker: "14 — Recognition",
+      heading: "iF Design Award 2026",
+      blocks: [
+        {
+          type: "statement",
+          text: "“Envisioning TASMU Smart City Platform Solutions” — recognized in Service, System & Process Design and Service Design.",
+        },
+        {
+          type: "paragraph",
+          text: "TASMU Platform 2.0 redefines Qatar's digital foundation — transforming a monolithic government platform into a modular ecosystem that powers the nation's Digital Agenda 2030. Designed through human-centered research and co-creation with the Ministry of Communications & IT and Ooredoo, it enables collaboration, innovation and data-driven decision-making centered on 6 core solutions across every public sector, fueling a cognitive, connected nation.",
+        },
+      ],
+    },
+    {
       id: "reflection",
-      kicker: "14 — Reflection",
+      kicker: "15 — Reflection",
       blocks: [
         {
           type: "list",
