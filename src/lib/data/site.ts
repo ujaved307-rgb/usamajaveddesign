@@ -15,7 +15,6 @@ export const nav = [
 ];
 
 export const homepage = {
-  eyebrow: "Experience Design Lead · Senior UX Consultant",
   heroStatement: ["I turn", "complexity", "into clarity."],
   heroSub:
     "10+ years designing complex digital experiences across government, enterprise, aviation, fintech, mobility and smart cities — for GCC and global organizations, with an AI-native design practice.",
@@ -30,13 +29,20 @@ export const homepage = {
   ],
   clients: [
     { name: "Accenture", logo: "/logos/accenture.svg" },
-    { name: "TASMU / MCIT Qatar" },
-    { name: "STC Kuwait" },
-    { name: "Royal Commission for Riyadh City" },
+    { name: "TASMU", logo: "/logos/tasmu.png" },
+    { name: "MCIT Qatar", logo: "/logos/mcit.png" },
+    { name: "STC Kuwait", logo: "/logos/stc.png" },
+    { name: "Royal Commission for Riyadh City", logo: "/logos/rcrc.png" },
     { name: "Dubai Holding" },
     { name: "Saudia Airlines", logo: "/logos/saudia.svg" },
-    { name: "Careem" },
+    { name: "Careem", logo: "/logos/careem.png" },
     { name: "Al Rajhi Bank" },
+    { name: "Rogers", logo: "/logos/rogers.png" },
+    { name: "CityNews", logo: "/logos/citynews.png" },
+    { name: "MBZUAI", logo: "/logos/mbzuai.png" },
+    { name: "Orfinex", logo: "/logos/orfinex.png" },
+    { name: "Nedbank", logo: "/logos/nedbank.png" },
+    { name: "Metro Wholesale", logo: "/logos/metro-wholesale.png" },
   ],
   award:
     "Awarded at the global stage — Red Dot 2026 & iF Design Award for the TASMU design project, delivered for the Government of Qatar (Ministry of Communications & Information Technology).",

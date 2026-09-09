@@ -10,7 +10,8 @@ export const stcKuwait: CaseStudy = {
   role: "Lead Experience Designer",
   scope: "Mobile app + website — UX strategy, audit, journey redesign",
   platform: "Mobile app & website",
-  cardTagline: "STC Kuwait",
+  cardTagline:
+    "300+ UX findings turned into a redesigned SIM & device journey — cutting plan-selection drop-offs by 35%.",
   hook: "Kuwait's #1-ranked telecom operator was losing customers to friction it couldn't see — until 300+ UX findings gave it a map.",
   heroImage: "https://framerusercontent.com/images/SpI3Fqfwz6L9lDv22YQ6iNHFC6Q.png",
   color: "#E0409A",

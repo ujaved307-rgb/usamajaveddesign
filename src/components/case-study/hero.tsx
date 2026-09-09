@@ -57,7 +57,7 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
         </div>
       </Reveal>
 
-      <div className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 sm:pb-20">
+      <div className="mx-auto w-full max-w-6xl px-5 pt-12 pb-16 sm:px-8 sm:pt-16 sm:pb-20">
         <RevealImage
           src={project.heroImage}
           alt={`${project.title} — ${project.client}`}
