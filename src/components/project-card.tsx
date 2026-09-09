@@ -16,54 +16,45 @@ export function ProjectCard({
   large?: boolean;
 }) {
   const headline = project.impact[0];
-  const tickerText = [...project.category, project.year, "VIEW CASE STUDY"];
-  const ticker = [...tickerText, ...tickerText, ...tickerText];
   const metaLine = [...project.category, project.year];
 
   return (
     <Reveal>
       <Link href={`/work/${project.slug}`} className="group flex h-full flex-col">
         <div
-          className="relative overflow-hidden rounded-[2rem]"
+          className="relative overflow-hidden rounded-[2rem] p-1.5 ring-1 ring-inset ring-cream/25"
           style={{
-            background: `linear-gradient(160deg, #0b0b0c 0%, ${project.color} 65%)`,
+            background: `radial-gradient(120% 100% at 50% 15%, ${project.color} 0%, #0b0b0c 75%)`,
           }}
         >
-          <div className="overflow-hidden border-b border-cream/15 py-2">
-            <div className="flex w-max animate-marquee motion-reduce:animate-none">
-              {ticker.map((item, i) => (
-                <span
-                  key={i}
-                  className="mx-3 shrink-0 text-xs font-semibold uppercase tracking-wide text-cream/70"
-                >
-                  {item} <span aria-hidden>✦</span>
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative px-6 pb-10 pt-10 sm:px-10 sm:pb-14 sm:pt-12">
-            {/* soft "resting on a surface" shadow, staged-photo feel */}
-            <div
-              aria-hidden
-              className="absolute bottom-6 left-1/2 h-8 w-[70%] -translate-x-1/2 rounded-full bg-black/40 blur-2xl sm:bottom-8"
-            />
+          <div className="relative flex min-h-[340px] items-end justify-center overflow-hidden rounded-[1.6rem] px-6 pb-0 pt-14 sm:min-h-[420px] sm:px-10 sm:pt-16">
             <motion.div
-              initial={{ rotate: -2.5 }}
-              whileHover={{ rotate: 0, scale: 1.02 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative mx-auto overflow-hidden rounded-2xl bg-cream shadow-[0_40px_70px_-20px_rgba(0,0,0,0.55)]"
+              initial={{ rotateX: 8, rotateY: -6, rotate: -1.5 }}
+              whileHover={{ rotateX: 0, rotateY: 0, rotate: 0, scale: 1.02 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              style={{ perspective: 1200, transformStyle: "preserve-3d" }}
+              className="relative z-10 mx-auto w-full max-w-[560px] overflow-hidden rounded-t-2xl border-[6px] border-b-0 border-ink/85 bg-cream-2 shadow-[0_50px_80px_-25px_rgba(0,0,0,0.6)]"
             >
-              <div className={`relative w-full ${large ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+              <div className={`relative w-full ${large ? "aspect-[16/11]" : "aspect-[4/3.1]"}`}>
                 <Image
                   src={project.heroImage}
                   alt={`${project.shortTitle} — ${project.client}`}
                   fill
                   sizes={large ? "(min-width: 1024px) 1000px, 100vw" : "(min-width: 1024px) 480px, 100vw"}
-                  className="object-contain p-4"
+                  className="object-contain object-top p-2"
                 />
               </div>
             </motion.div>
+
+            {/* studio "floor" the device appears to rest on */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute bottom-4 left-1/2 h-6 w-[62%] -translate-x-1/2 rounded-full bg-black/50 blur-xl"
+            />
           </div>
         </div>
 
