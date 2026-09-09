@@ -62,7 +62,8 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
           src={project.heroImage}
           alt={`${project.title} — ${project.client}`}
           aspect="aspect-[16/10] sm:aspect-[2/1]"
-          roundedClassName="rounded-lg"
+          bgClassName="bg-transparent"
+          roundedClassName="rounded-[20px]"
           priority
           sizes="(min-width: 1280px) 1152px, 100vw"
         />
