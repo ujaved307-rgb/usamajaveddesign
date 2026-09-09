@@ -22,10 +22,10 @@ export function SelectedWork() {
       </Reveal>
 
       <div className="mt-10 flex flex-col gap-8">
-        <ProjectCard project={first} index={0} large />
+        <ProjectCard project={first} large />
         <div className="grid gap-8 sm:grid-cols-2">
-          {rest.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i + 1} />
+          {rest.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
       </div>

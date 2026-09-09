@@ -26,8 +26,8 @@ export default function WorkPage() {
       </Reveal>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2">
-        {caseStudies.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} index={i} />
+        {caseStudies.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
     </div>
