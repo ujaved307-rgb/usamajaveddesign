@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { strategyAi } from "@/lib/data/site";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { Magnetic } from "@/components/magnetic";
@@ -69,12 +70,23 @@ export default function StrategyAiPage() {
             {strategyAi.tools.heading}
           </h2>
         </Reveal>
-        <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2">
+        <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {strategyAi.tools.items.map((tool) => (
             <RevealItem key={tool.name}>
-              <div className="rounded-xl border-2 border-ink/10 p-5 transition-colors hover:border-accent/50">
-                <h3 className="font-display text-base font-semibold tracking-tight">{tool.name}</h3>
-                <p className="mt-1 text-sm text-ink-2">{tool.use}</p>
+              <div className="flex items-start gap-4 rounded-xl border-2 border-ink/10 p-5 transition-colors hover:border-accent/50">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-cream-2">
+                  {tool.logo ? (
+                    <Image src={tool.logo} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
+                  ) : (
+                    <span className="text-sm font-bold text-ink-3" aria-hidden>
+                      {tool.name.charAt(0)}
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <h3 className="font-display text-base font-semibold tracking-tight">{tool.name}</h3>
+                  <p className="mt-1 text-sm text-ink-2">{tool.use}</p>
+                </div>
               </div>
             </RevealItem>
           ))}

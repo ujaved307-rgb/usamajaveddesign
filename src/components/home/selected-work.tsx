@@ -16,9 +16,9 @@ export function SelectedWork() {
         </span>
       </Reveal>
       <Reveal delay={0.05}>
-        <p className="font-display mt-5 max-w-2xl text-3xl font-semibold leading-snug tracking-tight text-balance sm:text-4xl">
-          {homepage.workIntro}
-        </p>
+        <h2 className="font-display mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+          {homepage.workIntroShort}
+        </h2>
       </Reveal>
 
       <div className="mt-10 flex flex-col gap-8">

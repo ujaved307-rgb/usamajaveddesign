@@ -29,14 +29,14 @@ export const homepage = {
     "Stakeholder Alignment",
   ],
   clients: [
-    "Accenture",
-    "TASMU / MCIT Qatar",
-    "STC Kuwait",
-    "Royal Commission for Riyadh City",
-    "Dubai Holding",
-    "Saudia Airlines",
-    "Careem",
-    "Al Rajhi Bank",
+    { name: "Accenture", logo: "/logos/accenture.svg" },
+    { name: "TASMU / MCIT Qatar" },
+    { name: "STC Kuwait" },
+    { name: "Royal Commission for Riyadh City" },
+    { name: "Dubai Holding" },
+    { name: "Saudia Airlines", logo: "/logos/saudia.svg" },
+    { name: "Careem" },
+    { name: "Al Rajhi Bank" },
   ],
   award:
     "Awarded at the global stage — Red Dot 2026 & iF Design Award for the TASMU design project, delivered for the Government of Qatar (Ministry of Communications & Information Technology).",
@@ -62,6 +62,7 @@ export const homepage = {
   ],
   workIntro:
     "A showcase of research-driven design and transformation projects built for top organizations across the Middle East and beyond. Each collaboration reflects a structured, insight-led approach — from discovery and strategy to design execution — solving complex challenges at scale and shaping seamless experiences across enterprise, government and consumer ecosystems.",
+  workIntroShort: "Research-driven design for enterprise, government and consumer ecosystems.",
   aboutTeaser:
     "I'm an award-winning Experience Design Lead at Accenture Middle East, based in Riyadh. I design high-impact digital products across telecom, banking, SaaS, mobility, government platforms, airlines and smart-city ecosystems — working across both B2B and B2C environments. With a strong foundation in technology and product thinking, I specialize in transforming complex systems into clear, scalable, user-centered experiences.",
 };
@@ -153,13 +154,18 @@ export const strategyAi = {
   tools: {
     heading: "Tools I Use",
     items: [
-      { name: "ChatGPT, Claude", use: "Research, strategy, synthesis, product thinking" },
-      { name: "Replit, Lovable", use: "Vibe coding & functional prototyping" },
-      { name: "Gemini, Google AI Studio", use: "Experimentation & product exploration" },
-      { name: "Figma Make", use: "Interactive product prototyping" },
+      { name: "ChatGPT", use: "Research, strategy, synthesis, product thinking" },
+      { name: "Claude", logo: "/logos/claude.svg", use: "Research, strategy, synthesis, product thinking" },
+      { name: "Replit", logo: "/logos/replit.svg", use: "Vibe coding & functional prototyping" },
+      { name: "Lovable", use: "Vibe coding & functional prototyping" },
+      { name: "Gemini", logo: "/logos/gemini.svg", use: "Experimentation & product exploration" },
+      { name: "Google AI Studio", use: "Experimentation & product exploration" },
+      { name: "Figma Make", logo: "/logos/figma.svg", use: "Interactive product prototyping" },
       { name: "Google Stitch", use: "Rapid UI concept generation" },
       { name: "DALL·E", use: "Visual and 3D concept generation" },
-      { name: "Runway, Veo 3, Kling AI", use: "Cinematic shots and video generation" },
+      { name: "Runway", use: "Cinematic shots and video generation" },
+      { name: "Veo 3", use: "Cinematic shots and video generation" },
+      { name: "Kling AI", use: "Cinematic shots and video generation" },
     ],
   },
   applied: {

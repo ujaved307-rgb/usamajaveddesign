@@ -46,8 +46,8 @@
   --color-cream-on-charcoal: var(--cream-on-charcoal);
   --color-cream-on-charcoal-2: var(--cream-on-charcoal-2);
 
-  --font-display: var(--font-fredoka), ui-rounded, system-ui, sans-serif;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-google-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-google-sans), ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 38s linear infinite;
 }
