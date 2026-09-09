@@ -31,12 +31,12 @@ export function Hero() {
               variants={lineVariants}
               className="block text-accent"
             >
-              DESIGN
+              Design
             </motion.span>
           </span>
           <span className="block overflow-hidden">
             <motion.span custom={2} initial="hidden" animate="visible" variants={lineVariants} className="block">
-              LEADER<span aria-hidden>.</span>
+              Leader<span aria-hidden>.</span>
             </motion.span>
           </span>
         </h1>
