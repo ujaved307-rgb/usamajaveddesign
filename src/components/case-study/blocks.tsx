@@ -80,28 +80,22 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
         </figure>
       );
 
-    case "gallery": {
-      const isOrphan = block.images.length % 2 === 1;
+    case "gallery":
       return (
-        <div className="grid gap-4 sm:grid-cols-2">
-          {block.images.map((img, i) => {
-            const last = isOrphan && i === block.images.length - 1;
-            return (
-              <RevealImage
-                key={i}
-                src={img.src}
-                alt={img.alt}
-                aspect={last ? "aspect-[16/9]" : "aspect-[4/3]"}
-                bgClassName="bg-transparent"
-                roundedClassName="rounded-[20px]"
-                className={last ? "sm:col-span-2" : undefined}
-                sizes={last ? "(min-width: 1024px) 1000px, 100vw" : "(min-width: 1024px) 500px, 100vw"}
-              />
-            );
-          })}
+        <div className="flex flex-col gap-6">
+          {block.images.map((img, i) => (
+            <RevealImage
+              key={i}
+              src={img.src}
+              alt={img.alt}
+              aspect="aspect-[16/10]"
+              bgClassName="bg-transparent"
+              roundedClassName="rounded-[20px]"
+              sizes="(min-width: 1024px) 1000px, 100vw"
+            />
+          ))}
         </div>
       );
-    }
 
     default:
       return null;
