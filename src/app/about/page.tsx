@@ -55,7 +55,8 @@ export default function AboutPage() {
             src={about.portrait}
             alt="Usama Javed"
             fit="cover"
-            aspect="aspect-[4/3]"
+            aspect="aspect-[4/5]"
+            roundedClassName="rounded-lg"
             sizes="(min-width: 768px) 480px, 100vw"
             curtain={false}
           />

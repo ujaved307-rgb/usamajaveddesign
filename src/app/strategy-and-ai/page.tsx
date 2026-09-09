@@ -4,6 +4,7 @@ import Image from "next/image";
 import { strategyAi } from "@/lib/data/site";
 import { Reveal, RevealGroup, RevealItem } from "@/components/reveal";
 import { Magnetic } from "@/components/magnetic";
+import { AiOrb } from "@/components/ai-orb";
 
 export const metadata: Metadata = {
   title: "Strategy & AI",
@@ -14,27 +15,34 @@ export const metadata: Metadata = {
 export default function StrategyAiPage() {
   return (
     <div>
-      <section className="mx-auto max-w-5xl px-5 pt-32 pb-16 sm:px-8 sm:pt-40">
-        <Reveal>
-          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
-            Design × Strategy × AI
-          </span>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h1 className="font-display mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl">
-            {strategyAi.title}
-          </h1>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-2 text-pretty">
-            {strategyAi.intro}
-          </p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <p className="font-display mt-6 max-w-xl text-2xl font-semibold tracking-tight text-balance text-accent">
-            {strategyAi.principle}
-          </p>
-        </Reveal>
+      <section className="mx-auto max-w-6xl px-5 pt-32 pb-16 sm:px-8 sm:pt-40">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-12">
+          <div>
+            <Reveal>
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
+                Design × Strategy × AI
+              </span>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h1 className="font-display mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl">
+                {strategyAi.title}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-2 text-pretty">
+                {strategyAi.intro}
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="font-display mt-6 max-w-xl text-2xl font-semibold tracking-tight text-balance text-accent">
+                {strategyAi.principle}
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1}>
+            <AiOrb />
+          </Reveal>
+        </div>
       </section>
 
       <section className="border-t border-ink/10 bg-cream-2">

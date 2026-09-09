@@ -71,6 +71,8 @@ export const homepage = {
   workIntroShort: "Research-driven design for enterprise, government and consumer ecosystems.",
   aboutTeaser:
     "I'm an award-winning Experience Design Lead at Accenture Middle East, based in Riyadh. I design high-impact digital products across telecom, banking, SaaS, mobility, government platforms, airlines and smart-city ecosystems — working across both B2B and B2C environments. With a strong foundation in technology and product thinking, I specialize in transforming complex systems into clear, scalable, user-centered experiences.",
+  heroPortrait: "/images/sea.jpg",
+  aboutTeaserPortrait: "/images/group.jpg",
 };
 
 export const about = {
@@ -138,7 +140,7 @@ export const about = {
       "https://framerusercontent.com/images/zWc7mDizFNKtizJ0Cn1mE9gZtM.jpeg",
     ],
   },
-  portrait: "https://framerusercontent.com/images/VvNqlBUeFlpJkcqbr0yDXHyuPYo.jpeg",
+  portrait: "/images/cup.jpg",
 };
 
 export const strategyAi = {

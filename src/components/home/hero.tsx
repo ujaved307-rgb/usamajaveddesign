@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { homepage, contact } from "@/lib/data/site";
 import { StickerTags } from "@/components/sticker-tag";
 import { ClientMarquee } from "@/components/client-marquee";
+import { RevealImage } from "@/components/reveal-image";
 
 const lineVariants = {
   hidden: { y: "110%" },
@@ -17,49 +18,83 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden pb-16 pt-32 sm:pt-40">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <h1 className="font-display text-[15vw] font-semibold leading-[0.92] tracking-tight sm:text-[6.5rem] md:text-[7.5rem]">
-          <span className="block overflow-hidden">
-            <motion.span custom={0} initial="hidden" animate="visible" variants={lineVariants} className="block">
-              Experience
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden">
-            <motion.span
-              custom={1}
-              initial="hidden"
-              animate="visible"
-              variants={lineVariants}
-              className="block text-accent"
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-12">
+          <div>
+            <h1 className="font-display text-[15vw] font-semibold leading-[0.92] tracking-tight sm:text-[6.5rem] md:text-[7.5rem]">
+              <span className="block overflow-hidden pb-2 sm:pb-3">
+                <motion.span
+                  custom={0}
+                  initial="hidden"
+                  animate="visible"
+                  variants={lineVariants}
+                  className="block"
+                >
+                  Experience
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden pb-2 sm:pb-3">
+                <motion.span
+                  custom={1}
+                  initial="hidden"
+                  animate="visible"
+                  variants={lineVariants}
+                  className="block text-accent"
+                >
+                  Design
+                </motion.span>
+              </span>
+              <span className="block overflow-hidden pb-2 sm:pb-3">
+                <motion.span
+                  custom={2}
+                  initial="hidden"
+                  animate="visible"
+                  variants={lineVariants}
+                  className="block"
+                >
+                  Leader<span aria-hidden>.</span>
+                </motion.span>
+              </span>
+            </h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 max-w-xl text-lg leading-relaxed text-ink-2 text-pretty"
             >
-              Design
-            </motion.span>
-          </span>
-          <span className="block overflow-hidden">
-            <motion.span custom={2} initial="hidden" animate="visible" variants={lineVariants} className="block">
-              Leader<span aria-hidden>.</span>
-            </motion.span>
-          </span>
-        </h1>
+              Hi, I&rsquo;m <span className="font-semibold text-ink">{contact.name}</span>{" "}
+              <span aria-hidden>👋</span> — an award-winning <span aria-hidden>🏆</span> Experience
+              Design Leader at Accenture Middle East, based in {contact.location}.{" "}
+              {homepage.heroSub}
+            </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-ink-2 text-pretty"
-        >
-          Hi, I&rsquo;m <span className="font-semibold text-ink">{contact.name}</span> <span aria-hidden>👋</span> — an
-          award-winning <span aria-hidden>🏆</span> Experience Design Leader at Accenture Middle East, based in{" "}
-          {contact.location}. {homepage.heroSub}
-        </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8"
+            >
+              <StickerTags items={homepage.heroSkills} />
+            </motion.div>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8"
-        >
-          <StickerTags items={homepage.heroSkills} />
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="sticker-tilt-2 mx-auto w-full max-w-xs lg:max-w-none"
+          >
+            <RevealImage
+              src={homepage.heroPortrait}
+              alt={contact.name}
+              fit="cover"
+              aspect="aspect-[4/5]"
+              roundedClassName="rounded-2xl"
+              priority
+              sizes="(min-width: 1024px) 380px, 60vw"
+            />
+          </motion.div>
+        </div>
       </div>
 
       <motion.div
