@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #faf9f6;
+  --paper-2: #f0ede6;
+  --ink: #0b0a09;
+  --ink-2: #514e48;
+  /* Darkened to clear 4.5:1 against --paper at small sizes (WCAG AA) */
+  --ink-3: #6b675e;
+  --line: #ddd8cd;
+  --accent: #ff4a1f;
+  /* Darker accent for use as small/normal text on --paper; --accent itself
+     only clears AA at large-text sizes (24px+) or as a non-text/background fill */
+  --accent-strong: #c1330f;
+  --accent-ink: #fff7f2;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 32s linear infinite;
+
+  --breakpoint-xs: 30rem;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+* {
+  border-color: var(--line);
+}
+
+/* Focus visibility, kept deliberately strong */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
