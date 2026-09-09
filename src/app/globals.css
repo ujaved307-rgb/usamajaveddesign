@@ -1,53 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark, warm charcoal as the primary ground — not pure black, not a cold
-     grey. Bone/off-white for inverted "break" sections, mirroring the dark
-     theme rather than the other way around. */
-  --ink: #0d0c0a;
-  --ink-2: #16130f;
-  --ink-line: rgba(243, 238, 228, 0.12);
+  /* Warm cream as the primary ground, bold near-black ink, one vivid
+     signature accent — plus a per-project color system (applied inline
+     from case-study data, not as static tokens) for the work cards. */
+  --cream: #fbf6ea;
+  --cream-2: #f3ead2;
+  --line: #e6dabb;
 
-  --bone: #f3eee4;
-  --bone-2: #eae3d4;
-  --bone-line: rgba(13, 12, 10, 0.12);
+  --ink: #16130c;
+  --ink-2: #57503e;
+  --ink-3: #8c8571;
 
-  --text: #f3eee4;
-  --text-2: #b8b0a0;
-  --text-3: #8a8271;
+  /* Two-tier accent: --accent is for large display type, fills behind
+     cream/ink text, and decorative use (clears 3:1, the "large text" /
+     non-text minimum); --accent-strong is for the same hue used as small
+     running text on cream, where it needs the full 4.5:1 AA bar. */
+  --accent: #e85a28;
+  --accent-strong: #c1401a;
+  --accent-ink: #fffaf0;
 
-  --text-on-bone: #17140f;
-  --text-on-bone-2: #4a4436;
-
-  /* Gold on dark reads bright and rich (AAA-level contrast); bronze is the
-     same hue darkened for use as text on light (bone) sections, where the
-     bright gold alone fails contrast. */
-  --gold: #e3b341;
-  --bronze: #8a5a12;
-  --gold-ink: #17140a;
+  --charcoal: #16130c;
+  --charcoal-2: #211c12;
+  --charcoal-line: rgba(251, 246, 234, 0.12);
+  --cream-on-charcoal: #fbf6ea;
+  --cream-on-charcoal-2: #b6ae98;
 }
 
 @theme inline {
+  --color-cream: var(--cream);
+  --color-cream-2: var(--cream-2);
+  --color-line: var(--line);
+
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
-  --color-ink-line: var(--ink-line);
+  --color-ink-3: var(--ink-3);
 
-  --color-bone: var(--bone);
-  --color-bone-2: var(--bone-2);
-  --color-bone-line: var(--bone-line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
 
-  --color-text: var(--text);
-  --color-text-2: var(--text-2);
-  --color-text-3: var(--text-3);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-2: var(--charcoal-2);
+  --color-charcoal-line: var(--charcoal-line);
+  --color-cream-on-charcoal: var(--cream-on-charcoal);
+  --color-cream-on-charcoal-2: var(--cream-on-charcoal-2);
 
-  --color-text-on-bone: var(--text-on-bone);
-  --color-text-on-bone-2: var(--text-on-bone-2);
-
-  --color-gold: var(--gold);
-  --color-bronze: var(--bronze);
-  --color-gold-ink: var(--gold-ink);
-
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-display: var(--font-fredoka), ui-rounded, system-ui, sans-serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 38s linear infinite;
@@ -67,37 +66,36 @@ html {
 }
 
 body {
-  background: var(--ink);
-  color: var(--text);
+  background: var(--cream);
+  color: var(--ink);
   font-family: var(--font-body);
   position: relative;
 }
 
-/* Subtle film-grain texture — flat vector-on-gradient is the single
-   fastest tell of an AI-templated page, grain is the cheapest fix. Static,
-   not animated: costs nothing at runtime, no reduced-motion concern. */
+/* Subtle paper-grain texture — flat vector-on-gradient is the fastest tell
+   of an AI-templated page. Static, not animated: no reduced-motion concern. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--gold-ink);
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
 * {
-  border-color: var(--ink-line);
+  border-color: var(--line);
 }
 
 :focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--accent-strong);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -124,13 +122,19 @@ body::before {
   text-wrap: pretty;
 }
 
-/* Applied to the largest display moments only — Fraunces' optional axes
-   give it real personality that a static weight can't. */
-.display-wonk {
-  font-variation-settings: "SOFT" 30, "WONK" 1, "opsz" 144;
-}
-
 .no-cursor,
 .no-cursor * {
   cursor: none !important;
+}
+
+/* Rotated "sticker" tags — a couple of degrees, alternating direction,
+   so a row of them never looks perfectly mechanical. */
+.sticker-tilt-1 {
+  transform: rotate(-2.5deg);
+}
+.sticker-tilt-2 {
+  transform: rotate(2deg);
+}
+.sticker-tilt-3 {
+  transform: rotate(-1.5deg);
 }

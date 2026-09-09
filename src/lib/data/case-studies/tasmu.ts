@@ -13,6 +13,8 @@ export const tasmu: CaseStudy = {
   cardTagline: "Unifying Qatar's Smart City Intelligence — MCIT Qatar",
   hook: "How do you turn a national smart-city vision into a platform that ministries, sector leads and citizens can actually run on?",
   heroImage: "https://framerusercontent.com/images/72EZIKexnHmEzb1EMzgGIQZQ8.png",
+  color: "#6C5CE7",
+  colorSoft: "#EFEBFD",
   award: "iF Design Award 2026 & Red Dot Design Award — TASMU, Government of Qatar (MCIT)",
   impact: [
     { value: "90%", label: "reduction in design time using AI-driven workflows" },

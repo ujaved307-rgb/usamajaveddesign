@@ -1,65 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { homepage, contact } from "@/lib/data/site";
 import { Magnetic } from "@/components/magnetic";
+import { StickerTags } from "@/components/sticker-tag";
 
-function getLineVariants(reduced: boolean) {
-  return {
-    hidden: { y: "110%" },
-    visible: (i: number) => ({
-      y: 0,
-      transition: reduced
-        ? { duration: 0.01 }
-        : { duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
-    }),
-  };
-}
+const lineVariants = {
+  hidden: { y: "110%" },
+  visible: (i: number) => ({
+    y: 0,
+    transition: { duration: 0.8, delay: 0.15 + i * 0.08, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+};
 
 export function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const shouldReduceMotion = useReducedMotion();
-  const lineVariants = getLineVariants(Boolean(shouldReduceMotion));
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, shouldReduceMotion ? 0 : -40]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, shouldReduceMotion ? 0 : -80]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
-    <section ref={ref} className="relative overflow-hidden pb-20 pt-32 sm:pt-44">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full opacity-[0.14] blur-[120px]"
-        style={{ background: "radial-gradient(circle, var(--gold), transparent 70%)" }}
-      />
-
-      <motion.div style={{ opacity }} className="relative mx-auto max-w-6xl px-5 sm:px-8">
+    <section className="relative overflow-hidden pb-16 pt-32 sm:pt-40">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-sm font-medium uppercase tracking-[0.16em] text-text-3"
+          className="text-sm font-semibold uppercase tracking-[0.16em] text-ink-3"
         >
           {homepage.eyebrow}
         </motion.p>
 
-        <h1 className="font-display display-wonk mt-6 text-[13vw] font-medium leading-[0.95] tracking-tight sm:text-[7.5rem] md:text-[8.5rem]">
+        <h1 className="font-display mt-6 text-[15vw] font-semibold leading-[0.92] tracking-tight sm:text-[6.5rem] md:text-[7.5rem]">
           <span className="block overflow-hidden">
-            <motion.span
-              custom={0}
-              initial="hidden"
-              animate="visible"
-              variants={lineVariants}
-              style={{ y: y1 }}
-              className="block"
-            >
-              {homepage.heroStatement[0]}
+            <motion.span custom={0} initial="hidden" animate="visible" variants={lineVariants} className="block">
+              Creative
             </motion.span>
           </span>
           <span className="block overflow-hidden">
@@ -68,22 +39,14 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               variants={lineVariants}
-              style={{ y: y1 }}
-              className="block italic text-gold"
+              className="block text-accent"
             >
-              {homepage.heroStatement[1]}
+              EXPERIENCE
             </motion.span>
           </span>
           <span className="block overflow-hidden">
-            <motion.span
-              custom={2}
-              initial="hidden"
-              animate="visible"
-              variants={lineVariants}
-              style={{ y: y2 }}
-              className="block"
-            >
-              {homepage.heroStatement[2]}
+            <motion.span custom={2} initial="hidden" animate="visible" variants={lineVariants} className="block">
+              DESIGNER<span aria-hidden>.</span>
             </motion.span>
           </span>
         </h1>
@@ -91,22 +54,32 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-text-2 text-pretty"
+          transition={{ duration: 0.7, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 max-w-xl text-lg leading-relaxed text-ink-2 text-pretty"
         >
-          <span className="font-medium text-text">{contact.name}</span> — {homepage.heroSub}
+          Hi, I&rsquo;m <span className="font-semibold text-ink">{contact.name}</span> <span aria-hidden>👋</span> — an
+          award-winning <span aria-hidden>🏆</span> {contact.role} based in {contact.location}. {homepage.heroSub}
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8"
+        >
+          <StickerTags items={homepage.heroSkills} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Magnetic>
             <Link
               href="/work"
-              className="inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-ink transition-opacity hover:opacity-85"
+              className="inline-block rounded-full bg-ink px-6 py-3 text-sm font-medium text-cream transition-opacity hover:opacity-85"
             >
               View work
             </Link>
@@ -114,21 +87,27 @@ export function Hero() {
           <Magnetic>
             <Link
               href="/about"
-              className="inline-block rounded-full border border-ink-line px-6 py-3 text-sm font-medium text-text transition-colors hover:border-text"
+              className="inline-block rounded-full border-2 border-ink px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-cream"
             >
               About me
             </Link>
           </Magnetic>
         </motion.div>
+      </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 max-w-md border-t border-ink-line pt-6 text-sm text-text-2 text-pretty"
-        >
-          <span aria-hidden>🏆</span> {homepage.award}
-        </motion.p>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className="mt-16 border-y-2 border-ink py-5"
+      >
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 sm:px-8">
+          {homepage.clients.map((c) => (
+            <span key={c} className="text-sm font-semibold uppercase tracking-wide text-ink-3">
+              {c}
+            </span>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

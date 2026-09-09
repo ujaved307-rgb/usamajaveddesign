@@ -13,6 +13,8 @@ export const dubaiHolding: CaseStudy = {
   cardTagline: "Winning & Designing Dubai Holding's Smart Community Platform",
   hook: "World-class communities deserve a digital experience that matches them — Dubai Holding's residents were still juggling disconnected systems for everyday life.",
   heroImage: "https://framerusercontent.com/images/NTGUOQbqb4g4Ck5D1RxSoqPDhHo.png",
+  color: "#0FA35E",
+  colorSoft: "#E3F7ED",
   impact: [
     { value: "1 RFP", label: "won competitively for Dubai Holding Properties" },
     { value: "Ongoing", label: "the engagement has evolved into a continuing internal program" },

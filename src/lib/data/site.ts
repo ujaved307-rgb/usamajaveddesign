@@ -19,6 +19,25 @@ export const homepage = {
   heroStatement: ["I turn", "complexity", "into clarity."],
   heroSub:
     "10+ years designing complex digital experiences across government, enterprise, aviation, fintech, mobility and smart cities — for GCC and global organizations, with an AI-native design practice.",
+  heroSkills: [
+    "UX Strategy",
+    "Product Design",
+    "Design Systems",
+    "Workshop Facilitation",
+    "AI-Driven Design",
+    "Journey Mapping",
+    "Stakeholder Alignment",
+  ],
+  clients: [
+    "Accenture",
+    "TASMU / MCIT Qatar",
+    "STC Kuwait",
+    "Royal Commission for Riyadh City",
+    "Dubai Holding",
+    "Saudia Airlines",
+    "Careem",
+    "Al Rajhi Bank",
+  ],
   award:
     "Awarded at the global stage — Red Dot 2026 & iF Design Award for the TASMU design project, delivered for the Government of Qatar (Ministry of Communications & Information Technology).",
   credibility: [

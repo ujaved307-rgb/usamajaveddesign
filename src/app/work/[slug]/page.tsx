@@ -4,6 +4,7 @@ import { caseStudies, getCaseStudy, getAdjacentCaseStudy } from "@/lib/data/case
 import { CaseStudyHero } from "@/components/case-study/hero";
 import { CaseStudySectionView } from "@/components/case-study/section";
 import { NextProject } from "@/components/case-study/next-project";
+import { SectionRail } from "@/components/case-study/section-rail";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -36,6 +37,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
   return (
     <article>
       <CaseStudyHero project={project} />
+      <SectionRail sectionIds={project.sections.map((s) => s.id)} color={project.color} />
       {project.sections.map((section) => (
         <CaseStudySectionView key={section.id} section={section} />
       ))}

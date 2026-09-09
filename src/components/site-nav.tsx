@@ -24,14 +24,11 @@ export function SiteNav() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "border-b border-ink-line bg-ink/85 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "border-b border-ink/10 bg-cream/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <Link
-          href="/"
-          className="font-display text-lg font-medium tracking-tight text-text"
-        >
+        <Link href="/" className="font-display text-lg font-semibold tracking-tight text-ink">
           Usama Javed
         </Link>
 
@@ -40,8 +37,8 @@ export function SiteNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm transition-colors ${
-                isActive(item.href) ? "text-gold" : "text-text-2 hover:text-text"
+              className={`text-sm font-medium transition-colors ${
+                isActive(item.href) ? "text-accent-strong" : "text-ink-2 hover:text-ink"
               }`}
               aria-current={isActive(item.href) ? "page" : undefined}
             >
@@ -52,14 +49,14 @@ export function SiteNav() {
             href={contact.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="text-sm text-text-2 transition-colors hover:text-text"
+            className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
           >
             LinkedIn
           </a>
           <Magnetic>
             <a
               href={`mailto:${contact.email}`}
-              className="inline-block rounded-full bg-gold px-4 py-2 text-sm font-medium text-gold-ink transition-opacity hover:opacity-85"
+              className="inline-block rounded-full bg-ink px-4 py-2 text-sm font-medium text-cream transition-opacity hover:opacity-85"
             >
               Let&rsquo;s talk
             </a>
@@ -75,12 +72,12 @@ export function SiteNav() {
         >
           <span className="relative block h-4 w-5">
             <span
-              className={`absolute left-0 top-0 h-px w-5 bg-text transition-transform ${
+              className={`absolute left-0 top-0 h-0.5 w-5 rounded-full bg-ink transition-transform ${
                 menuOpen ? "translate-y-[7px] rotate-45" : ""
               }`}
             />
             <span
-              className={`absolute left-0 bottom-0 h-px w-5 bg-text transition-transform ${
+              className={`absolute left-0 bottom-0 h-0.5 w-5 rounded-full bg-ink transition-transform ${
                 menuOpen ? "-translate-y-[7px] -rotate-45" : ""
               }`}
             />
@@ -89,13 +86,13 @@ export function SiteNav() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-ink-line bg-ink px-5 pb-6 pt-2 md:hidden">
+        <nav className="border-t border-ink/10 bg-cream px-5 pb-6 pt-2 md:hidden">
           <ul className="flex flex-col gap-1">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block py-3 text-lg text-text"
+                  className="block py-3 text-lg text-ink"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
@@ -103,12 +100,12 @@ export function SiteNav() {
               </li>
             ))}
             <li>
-              <a href={contact.linkedin} target="_blank" rel="noreferrer" className="block py-3 text-lg text-text">
+              <a href={contact.linkedin} target="_blank" rel="noreferrer" className="block py-3 text-lg text-ink">
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href={`mailto:${contact.email}`} className="block py-3 text-lg text-text">
+              <a href={`mailto:${contact.email}`} className="block py-3 text-lg text-ink">
                 Email
               </a>
             </li>

@@ -3,14 +3,14 @@ import { StatValue } from "@/components/stat-value";
 import { RevealImage } from "@/components/reveal-image";
 
 export function BlockRenderer({ block, invert = false }: { block: Block; invert?: boolean }) {
-  const dotColor = invert ? "bg-bronze" : "bg-gold";
-  const quoteBorder = invert ? "border-bronze" : "border-gold";
-  const imageBg = invert ? "bg-bone-2" : "bg-ink-2";
+  const dotColor = invert ? "bg-accent" : "bg-ink";
+  const quoteBorder = invert ? "border-accent" : "border-ink";
+  const imageBg = invert ? "bg-charcoal-2" : "bg-cream-2";
 
   switch (block.type) {
     case "heading":
       return (
-        <h3 className="font-display mt-2 text-2xl font-medium tracking-tight text-balance sm:text-3xl">
+        <h3 className="font-display mt-2 text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
           {block.text}
         </h3>
       );
@@ -20,7 +20,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
 
     case "statement":
       return (
-        <p className="font-display max-w-3xl text-2xl font-medium leading-snug tracking-tight text-balance sm:text-3xl">
+        <p className="font-display max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-balance sm:text-3xl">
           {block.text}
         </p>
       );
@@ -39,8 +39,8 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
 
     case "quote":
       return (
-        <blockquote className={`max-w-2xl border-l-2 ${quoteBorder} pl-6`}>
-          <p className="font-display text-xl italic leading-snug text-balance sm:text-2xl">
+        <blockquote className={`max-w-2xl border-l-4 ${quoteBorder} pl-6`}>
+          <p className="font-display text-xl font-medium leading-snug text-balance sm:text-2xl">
             &ldquo;{block.text}&rdquo;
           </p>
           {block.attribution && (
@@ -56,7 +56,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
             <div key={i}>
               <StatValue
                 value={stat.value}
-                className="font-display block text-4xl font-medium tracking-tight sm:text-5xl"
+                className="font-display block text-4xl font-semibold tracking-tight sm:text-5xl"
               />
               <p className="mt-2 max-w-[20ch] text-sm opacity-70">{stat.label}</p>
             </div>

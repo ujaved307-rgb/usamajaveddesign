@@ -29,6 +29,9 @@ export interface CaseStudy {
   cardTagline: string;
   hook: string;
   heroImage: string;
+  /** Signature card color for the Featured Work grid — a hex pair (fill + soft tint). */
+  color: string;
+  colorSoft: string;
   sections: CaseStudySection[];
   impact: { value: string; label: string }[];
   award?: string;

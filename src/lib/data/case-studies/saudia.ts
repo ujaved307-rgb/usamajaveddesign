@@ -13,6 +13,8 @@ export const saudia: CaseStudy = {
   cardTagline: "Redesigning the Flight Booking & Add-ons Experience for Saudia Airlines",
   hook: "Two research tracks, one national carrier: how do you make booking effortless without cheapening a premium brand?",
   heroImage: "https://framerusercontent.com/images/52ZBEjVhsuLQah3sAu4gUWdit8.jpg",
+  color: "#2B8CE6",
+  colorSoft: "#E7F2FD",
   impact: [
     { value: "25%", label: "faster booking completion" },
     { value: "20%", label: "increase in task success rate" },

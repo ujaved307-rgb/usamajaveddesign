@@ -13,6 +13,8 @@ export const rcrc: CaseStudy = {
   cardTagline: "Transforming Complex Government Ecosystems into Scalable Digital Experiences",
   hook: "How do you bring design maturity to an organization shaping the future of a capital city — one platform, one workshop, one trust-building conversation at a time?",
   heroImage: "https://framerusercontent.com/images/dVdmpyV8hdR5qQkngeJMgRnd0E.jpg",
+  color: "#A66B08",
+  colorSoft: "#FBF0D9",
   impact: [
     { value: "10+", label: "multi-sector government projects delivered" },
     { value: "200+", label: "screens redesigned across the Bawabaty Portal" },

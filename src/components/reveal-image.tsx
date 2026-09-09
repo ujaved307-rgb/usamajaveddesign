@@ -36,7 +36,7 @@ export function RevealImage({
   return (
     <div
       className={`relative overflow-hidden rounded-xl ${aspect} ${
-        fit === "contain" ? "bg-ink-2" : ""
+        fit === "contain" ? "bg-cream-2" : ""
       } ${className ?? ""}`}
     >
       <motion.div
@@ -77,7 +77,7 @@ export function RevealImage({
               : { duration: 0.65, ease: [0.83, 0, 0.17, 1], delay: 0.08 }
           }
           style={{ transformOrigin: "right" }}
-          className="absolute inset-0 bg-gold"
+          className="absolute inset-0 bg-accent"
         />
       )}
     </div>

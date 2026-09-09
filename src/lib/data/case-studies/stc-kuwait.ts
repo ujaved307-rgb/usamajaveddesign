@@ -13,6 +13,8 @@ export const stcKuwait: CaseStudy = {
   cardTagline: "STC Kuwait",
   hook: "Kuwait's #1-ranked telecom operator was losing customers to friction it couldn't see — until 300+ UX findings gave it a map.",
   heroImage: "https://framerusercontent.com/images/SpI3Fqfwz6L9lDv22YQ6iNHFC6Q.png",
+  color: "#E0409A",
+  colorSoft: "#FCE9F3",
   impact: [
     { value: "35%", label: "reduction in drop-offs during plan selection" },
     { value: "27%", label: "increase in task completion rate" },
