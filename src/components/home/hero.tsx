@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { homepage, contact } from "@/lib/data/site";
+import { Magnetic } from "@/components/magnetic";
 
 function getLineVariants(reduced: boolean) {
   return {
@@ -32,17 +33,23 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative overflow-hidden pb-20 pt-32 sm:pt-44">
-      <motion.div style={{ opacity }} className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 right-[-10%] h-[36rem] w-[36rem] rounded-full opacity-[0.14] blur-[120px]"
+        style={{ background: "radial-gradient(circle, var(--gold), transparent 70%)" }}
+      />
+
+      <motion.div style={{ opacity }} className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-sm font-medium uppercase tracking-[0.16em] text-ink-3"
+          className="text-sm font-medium uppercase tracking-[0.16em] text-text-3"
         >
           {homepage.eyebrow}
         </motion.p>
 
-        <h1 className="font-display mt-6 text-[13vw] font-semibold leading-[0.95] tracking-tight sm:text-[7.5rem] md:text-[8.5rem]">
+        <h1 className="font-display display-wonk mt-6 text-[13vw] font-medium leading-[0.95] tracking-tight sm:text-[7.5rem] md:text-[8.5rem]">
           <span className="block overflow-hidden">
             <motion.span
               custom={0}
@@ -62,7 +69,7 @@ export function Hero() {
               animate="visible"
               variants={lineVariants}
               style={{ y: y1 }}
-              className="block text-accent"
+              className="block italic text-gold"
             >
               {homepage.heroStatement[1]}
             </motion.span>
@@ -85,9 +92,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-ink-2 text-pretty"
+          className="mt-8 max-w-xl text-lg leading-relaxed text-text-2 text-pretty"
         >
-          <span className="font-medium text-ink">{contact.name}</span> — {homepage.heroSub}
+          <span className="font-medium text-text">{contact.name}</span> — {homepage.heroSub}
         </motion.p>
 
         <motion.div
@@ -96,25 +103,29 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.68, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
-          <Link
-            href="/work"
-            className="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-85"
-          >
-            View work
-          </Link>
-          <Link
-            href="/about"
-            className="rounded-full border border-line px-6 py-3 text-sm font-medium text-ink transition-colors hover:border-ink"
-          >
-            About me
-          </Link>
+          <Magnetic>
+            <Link
+              href="/work"
+              className="inline-block rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-ink transition-opacity hover:opacity-85"
+            >
+              View work
+            </Link>
+          </Magnetic>
+          <Magnetic>
+            <Link
+              href="/about"
+              className="inline-block rounded-full border border-ink-line px-6 py-3 text-sm font-medium text-text transition-colors hover:border-text"
+            >
+              About me
+            </Link>
+          </Magnetic>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-14 max-w-md border-t border-line pt-6 text-sm text-ink-2 text-pretty"
+          className="mt-14 max-w-md border-t border-ink-line pt-6 text-sm text-text-2 text-pretty"
         >
           <span aria-hidden>🏆</span> {homepage.award}
         </motion.p>

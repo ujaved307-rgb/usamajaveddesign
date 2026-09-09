@@ -1,37 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #faf9f6;
-  --paper-2: #f0ede6;
-  --ink: #0b0a09;
-  --ink-2: #514e48;
-  /* Darkened to clear 4.5:1 against --paper at small sizes (WCAG AA) */
-  --ink-3: #6b675e;
-  --line: #ddd8cd;
-  --accent: #ff4a1f;
-  /* Darker accent for use as small/normal text on --paper; --accent itself
-     only clears AA at large-text sizes (24px+) or as a non-text/background fill */
-  --accent-strong: #c1330f;
-  --accent-ink: #fff7f2;
+  /* Dark, warm charcoal as the primary ground — not pure black, not a cold
+     grey. Bone/off-white for inverted "break" sections, mirroring the dark
+     theme rather than the other way around. */
+  --ink: #0d0c0a;
+  --ink-2: #16130f;
+  --ink-line: rgba(243, 238, 228, 0.12);
+
+  --bone: #f3eee4;
+  --bone-2: #eae3d4;
+  --bone-line: rgba(13, 12, 10, 0.12);
+
+  --text: #f3eee4;
+  --text-2: #b8b0a0;
+  --text-3: #8a8271;
+
+  --text-on-bone: #17140f;
+  --text-on-bone-2: #4a4436;
+
+  /* Gold on dark reads bright and rich (AAA-level contrast); bronze is the
+     same hue darkened for use as text on light (bone) sections, where the
+     bright gold alone fails contrast. */
+  --gold: #e3b341;
+  --bronze: #8a5a12;
+  --gold-ink: #17140a;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
-  --color-paper-2: var(--paper-2);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
-  --color-ink-3: var(--ink-3);
-  --color-line: var(--line);
-  --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
-  --color-accent-ink: var(--accent-ink);
+  --color-ink-line: var(--ink-line);
 
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --color-bone: var(--bone);
+  --color-bone-2: var(--bone-2);
+  --color-bone-line: var(--bone-line);
+
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+
+  --color-text-on-bone: var(--text-on-bone);
+  --color-text-on-bone-2: var(--text-on-bone-2);
+
+  --color-gold: var(--gold);
+  --color-bronze: var(--bronze);
+  --color-gold-ink: var(--gold-ink);
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --animate-marquee: marquee 32s linear infinite;
-
-  --breakpoint-xs: 30rem;
+  --animate-marquee: marquee 38s linear infinite;
 }
 
 @keyframes marquee {
@@ -48,23 +67,37 @@ html {
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--text);
   font-family: var(--font-body);
+  position: relative;
+}
+
+/* Subtle film-grain texture — flat vector-on-gradient is the single
+   fastest tell of an AI-templated page, grain is the cheapest fix. Static,
+   not animated: costs nothing at runtime, no reduced-motion concern. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-ink);
+  background: var(--gold);
+  color: var(--gold-ink);
 }
 
 * {
-  border-color: var(--line);
+  border-color: var(--ink-line);
 }
 
-/* Focus visibility, kept deliberately strong */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -89,4 +122,15 @@ body {
 
 .text-pretty {
   text-wrap: pretty;
+}
+
+/* Applied to the largest display moments only — Fraunces' optional axes
+   give it real personality that a static weight can't. */
+.display-wonk {
+  font-variation-settings: "SOFT" 30, "WONK" 1, "opsz" 144;
+}
+
+.no-cursor,
+.no-cursor * {
+  cursor: none !important;
 }

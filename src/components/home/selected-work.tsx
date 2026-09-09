@@ -3,6 +3,7 @@ import { caseStudies } from "@/lib/data/case-studies";
 import { homepage } from "@/lib/data/site";
 import { ProjectRow } from "@/components/project-row";
 import { Reveal } from "@/components/reveal";
+import { Magnetic } from "@/components/magnetic";
 
 export function SelectedWork() {
   const featured = caseStudies.slice(0, 4);
@@ -10,7 +11,7 @@ export function SelectedWork() {
   return (
     <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
       <Reveal>
-        <span className="font-display text-xs font-medium uppercase tracking-[0.14em] text-ink-3">
+        <span className="text-xs font-medium uppercase tracking-[0.14em] text-text-3">
           Selected work
         </span>
       </Reveal>
@@ -27,13 +28,15 @@ export function SelectedWork() {
       </div>
 
       <Reveal>
-        <Link
-          href="/work"
-          className="mt-14 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-85"
-        >
-          View all work
-          <span aria-hidden>→</span>
-        </Link>
+        <Magnetic className="mt-14 inline-block">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-3 text-sm font-medium text-gold-ink transition-opacity hover:opacity-85"
+          >
+            View all work
+            <span aria-hidden>→</span>
+          </Link>
+        </Magnetic>
       </Reveal>
     </section>
   );

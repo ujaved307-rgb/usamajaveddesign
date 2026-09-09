@@ -1,12 +1,16 @@
-import Image from "next/image";
 import type { Block } from "@/lib/types";
 import { StatValue } from "@/components/stat-value";
+import { RevealImage } from "@/components/reveal-image";
 
-export function BlockRenderer({ block }: { block: Block }) {
+export function BlockRenderer({ block, invert = false }: { block: Block; invert?: boolean }) {
+  const dotColor = invert ? "bg-bronze" : "bg-gold";
+  const quoteBorder = invert ? "border-bronze" : "border-gold";
+  const imageBg = invert ? "bg-bone-2" : "bg-ink-2";
+
   switch (block.type) {
     case "heading":
       return (
-        <h3 className="font-display mt-2 text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
+        <h3 className="font-display mt-2 text-2xl font-medium tracking-tight text-balance sm:text-3xl">
           {block.text}
         </h3>
       );
@@ -26,7 +30,7 @@ export function BlockRenderer({ block }: { block: Block }) {
         <ul className="grid max-w-3xl gap-3 sm:grid-cols-2">
           {block.items.map((item, i) => (
             <li key={i} className="flex gap-3 text-base leading-relaxed opacity-90">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+              <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${dotColor}`} aria-hidden />
               <span>{item}</span>
             </li>
           ))}
@@ -35,7 +39,7 @@ export function BlockRenderer({ block }: { block: Block }) {
 
     case "quote":
       return (
-        <blockquote className="max-w-2xl border-l-2 border-accent pl-6">
+        <blockquote className={`max-w-2xl border-l-2 ${quoteBorder} pl-6`}>
           <p className="font-display text-xl italic leading-snug text-balance sm:text-2xl">
             &ldquo;{block.text}&rdquo;
           </p>
@@ -52,7 +56,7 @@ export function BlockRenderer({ block }: { block: Block }) {
             <div key={i}>
               <StatValue
                 value={stat.value}
-                className="font-display block text-4xl font-semibold tracking-tight sm:text-5xl"
+                className="font-display block text-4xl font-medium tracking-tight sm:text-5xl"
               />
               <p className="mt-2 max-w-[20ch] text-sm opacity-70">{stat.label}</p>
             </div>
@@ -63,15 +67,13 @@ export function BlockRenderer({ block }: { block: Block }) {
     case "image":
       return (
         <figure className={block.wide ? "w-full" : "max-w-3xl"}>
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-paper-2">
-            <Image
-              src={block.src}
-              alt={block.alt}
-              fill
-              sizes="(min-width: 1024px) 1000px, 100vw"
-              className="object-cover"
-            />
-          </div>
+          <RevealImage
+            src={block.src}
+            alt={block.alt}
+            aspect="aspect-[16/10]"
+            className={imageBg}
+            sizes="(min-width: 1024px) 1000px, 100vw"
+          />
           {block.caption && (
             <figcaption className="mt-2 text-sm opacity-60">{block.caption}</figcaption>
           )}
@@ -82,18 +84,14 @@ export function BlockRenderer({ block }: { block: Block }) {
       return (
         <div className="grid gap-4 sm:grid-cols-2">
           {block.images.map((img, i) => (
-            <div
+            <RevealImage
               key={i}
-              className="relative aspect-[4/3] overflow-hidden rounded-xl bg-paper-2"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 1024px) 500px, 100vw"
-                className="object-cover"
-              />
-            </div>
+              src={img.src}
+              alt={img.alt}
+              aspect="aspect-[4/3]"
+              className={imageBg}
+              sizes="(min-width: 1024px) 500px, 100vw"
+            />
           ))}
         </div>
       );

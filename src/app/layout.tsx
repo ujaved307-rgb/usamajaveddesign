@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { CustomCursor } from "@/components/custom-cursor";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
 const inter = Inter({
@@ -46,9 +49,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${inter.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+      <body className="min-h-full flex flex-col bg-ink text-text selection:bg-gold">
+        <CustomCursor />
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />

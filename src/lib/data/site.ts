@@ -29,6 +29,18 @@ export const homepage = {
     { value: "2", label: "Global design awards — Red Dot & iF Design Award" },
     { value: "AI-native", label: "Design practice, built around AI-accelerated workflows" },
   ],
+  industries: [
+    "Government",
+    "Smart Cities",
+    "Aviation",
+    "Telecom",
+    "Banking & Fintech",
+    "Mobility",
+    "Oil & Gas",
+    "Education",
+    "Enterprise B2B",
+    "Consumer Products",
+  ],
   workIntro:
     "A showcase of research-driven design and transformation projects built for top organizations across the Middle East and beyond. Each collaboration reflects a structured, insight-led approach — from discovery and strategy to design execution — solving complex challenges at scale and shaping seamless experiences across enterprise, government and consumer ecosystems.",
   aboutTeaser:

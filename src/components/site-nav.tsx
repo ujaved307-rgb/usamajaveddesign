@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, contact } from "@/lib/data/site";
+import { Magnetic } from "@/components/magnetic";
 
 export function SiteNav() {
   const pathname = usePathname();
@@ -23,13 +24,13 @@ export function SiteNav() {
   return (
     <header
       className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-paper/90 backdrop-blur-md border-b border-line" : "bg-transparent"
+        scrolled ? "border-b border-ink-line bg-ink/85 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <Link
           href="/"
-          className="font-display text-base font-semibold tracking-tight text-ink"
+          className="font-display text-lg font-medium tracking-tight text-text"
         >
           Usama Javed
         </Link>
@@ -40,7 +41,7 @@ export function SiteNav() {
               key={item.href}
               href={item.href}
               className={`text-sm transition-colors ${
-                isActive(item.href) ? "text-ink" : "text-ink-2 hover:text-ink"
+                isActive(item.href) ? "text-gold" : "text-text-2 hover:text-text"
               }`}
               aria-current={isActive(item.href) ? "page" : undefined}
             >
@@ -51,16 +52,18 @@ export function SiteNav() {
             href={contact.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="text-sm text-ink-2 transition-colors hover:text-ink"
+            className="text-sm text-text-2 transition-colors hover:text-text"
           >
             LinkedIn
           </a>
-          <a
-            href={`mailto:${contact.email}`}
-            className="rounded-full bg-ink px-4 py-2 text-sm text-paper transition-opacity hover:opacity-85"
-          >
-            Let&rsquo;s talk
-          </a>
+          <Magnetic>
+            <a
+              href={`mailto:${contact.email}`}
+              className="inline-block rounded-full bg-gold px-4 py-2 text-sm font-medium text-gold-ink transition-opacity hover:opacity-85"
+            >
+              Let&rsquo;s talk
+            </a>
+          </Magnetic>
         </nav>
 
         <button
@@ -72,12 +75,12 @@ export function SiteNav() {
         >
           <span className="relative block h-4 w-5">
             <span
-              className={`absolute left-0 top-0 h-px w-5 bg-ink transition-transform ${
+              className={`absolute left-0 top-0 h-px w-5 bg-text transition-transform ${
                 menuOpen ? "translate-y-[7px] rotate-45" : ""
               }`}
             />
             <span
-              className={`absolute left-0 bottom-0 h-px w-5 bg-ink transition-transform ${
+              className={`absolute left-0 bottom-0 h-px w-5 bg-text transition-transform ${
                 menuOpen ? "-translate-y-[7px] -rotate-45" : ""
               }`}
             />
@@ -86,13 +89,13 @@ export function SiteNav() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-line bg-paper px-5 pb-6 pt-2 md:hidden">
+        <nav className="border-t border-ink-line bg-ink px-5 pb-6 pt-2 md:hidden">
           <ul className="flex flex-col gap-1">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="block py-3 text-lg text-ink"
+                  className="block py-3 text-lg text-text"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
@@ -100,12 +103,12 @@ export function SiteNav() {
               </li>
             ))}
             <li>
-              <a href={contact.linkedin} target="_blank" rel="noreferrer" className="block py-3 text-lg text-ink">
+              <a href={contact.linkedin} target="_blank" rel="noreferrer" className="block py-3 text-lg text-text">
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href={`mailto:${contact.email}`} className="block py-3 text-lg text-ink">
+              <a href={`mailto:${contact.email}`} className="block py-3 text-lg text-text">
                 Email
               </a>
             </li>
