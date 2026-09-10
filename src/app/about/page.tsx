@@ -32,7 +32,7 @@ export default function AboutPage() {
   return (
     <div>
       <section className="mx-auto max-w-6xl px-5 pt-32 pb-20 sm:px-8 sm:pt-40">
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-12">
           <div>
             <Reveal>
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
@@ -54,9 +54,10 @@ export default function AboutPage() {
             <RevealImage
               src={about.headerPortrait}
               alt="Usama Javed with colleagues"
-              aspect="aspect-[16/10]"
+              aspect="aspect-[9/5]"
+              bgClassName="bg-transparent"
               roundedClassName="rounded-lg"
-              sizes="(min-width: 1024px) 420px, 100vw"
+              sizes="(min-width: 1024px) 560px, 100vw"
             />
           </Reveal>
         </div>

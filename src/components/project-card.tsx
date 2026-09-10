@@ -30,18 +30,18 @@ export function ProjectCard({
             }
           />
           {project.awardLogos && project.awardLogos.length > 0 && (
-            <div className="absolute top-3 left-3 flex gap-2">
+            <div className="absolute top-4 left-4 flex gap-2.5">
               {project.awardLogos.map((logo) => (
                 <span
                   key={logo}
-                  className="flex h-9 items-center rounded-lg bg-cream/95 px-2.5 shadow-md"
+                  className="flex h-14 items-center rounded-lg bg-cream/95 px-3.5 shadow-md"
                 >
                   <Image
                     src={logo}
                     alt="Design award"
-                    width={80}
-                    height={32}
-                    className="h-5 w-auto object-contain"
+                    width={140}
+                    height={56}
+                    className="h-9 w-auto object-contain"
                   />
                 </span>
               ))}
