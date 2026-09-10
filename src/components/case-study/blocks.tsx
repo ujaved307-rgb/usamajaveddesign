@@ -38,8 +38,8 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
 
     case "quote":
       return (
-        <blockquote className={`max-w-2xl border-l-4 ${quoteBorder} pl-6`}>
-          <p className="font-display text-xl font-medium leading-snug text-balance sm:text-2xl">
+        <blockquote className={`max-w-3xl border-l-4 ${quoteBorder} pl-6`}>
+          <p className="font-display text-xl font-medium leading-snug text-pretty sm:text-2xl">
             &ldquo;{block.text}&rdquo;
           </p>
           {block.attribution && (
