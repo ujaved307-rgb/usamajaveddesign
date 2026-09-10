@@ -11,8 +11,7 @@ export function AboutTeaser() {
         <RevealImage
           src={homepage.aboutTeaserPortrait}
           alt="Usama Javed with colleagues"
-          fit="cover"
-          aspect="aspect-[4/5]"
+          aspect="aspect-[16/9]"
           roundedClassName="rounded-lg"
           sizes="(min-width: 768px) 480px, 100vw"
           curtain={false}
