@@ -5,6 +5,7 @@ import { homepage, contact } from "@/lib/data/site";
 import { StickerTags } from "@/components/sticker-tag";
 import { ClientMarquee } from "@/components/client-marquee";
 import { RevealImage } from "@/components/reveal-image";
+import { useVirtualUsama } from "@/components/virtual-usama/store";
 
 const lineVariants = {
   hidden: { y: "110%" },
@@ -15,6 +16,8 @@ const lineVariants = {
 };
 
 export function Hero() {
+  const { open } = useVirtualUsama();
+
   return (
     <section className="relative overflow-hidden pb-16 pt-32 sm:pt-40">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -76,6 +79,25 @@ export function Hero() {
             >
               <StickerTags items={homepage.heroSkills} />
             </motion.div>
+
+            <motion.button
+              type="button"
+              onClick={() => open()}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="group mt-8 flex items-center gap-2.5 text-left"
+            >
+              <span className="text-accent-strong" aria-hidden>
+                ✦
+              </span>
+              <span>
+                <span className="block text-sm font-semibold text-ink underline decoration-ink/20 underline-offset-4 transition-colors group-hover:decoration-ink/50">
+                  Meet Virtual Usama →
+                </span>
+                <span className="block text-xs text-ink-3">Have a question about my work? Ask my AI.</span>
+              </span>
+            </motion.button>
           </div>
 
           <motion.div
