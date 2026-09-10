@@ -286,7 +286,6 @@ export const tasmu: CaseStudy = {
             { src: "https://framerusercontent.com/images/rda8x7TS2KnbQJ0o1qsPClztg1k.png", alt: "AI Data Marketplace interface" },
           ],
         },
-        { type: "image", src: "https://framerusercontent.com/images/uhoaOaTzjyZsYJEmMMcxAF0t6Q.png", alt: "iF Design Award recognition for the TASMU platform", caption: "iF Design Award (Germany) — recognized for excellence in design and innovation." },
       ],
     },
     {
@@ -310,23 +309,8 @@ export const tasmu: CaseStudy = {
       ],
     },
     {
-      id: "recognition",
-      kicker: "14 — Recognition",
-      heading: "iF Design Award 2026",
-      blocks: [
-        {
-          type: "statement",
-          text: "“Envisioning TASMU Smart City Platform Solutions” — recognized in Service, System & Process Design and Service Design.",
-        },
-        {
-          type: "paragraph",
-          text: "TASMU Platform 2.0 redefines Qatar's digital foundation — transforming a monolithic government platform into a modular ecosystem that powers the nation's Digital Agenda 2030. Designed through human-centered research and co-creation with the Ministry of Communications & IT and Ooredoo, it enables collaboration, innovation and data-driven decision-making centered on 6 core solutions across every public sector, fueling a cognitive, connected nation.",
-        },
-      ],
-    },
-    {
       id: "reflection",
-      kicker: "15 — Reflection",
+      kicker: "14 — Reflection",
       blocks: [
         {
           type: "list",
