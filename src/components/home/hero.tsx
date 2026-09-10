@@ -29,7 +29,7 @@ export function Hero() {
                   variants={lineVariants}
                   className="block"
                 >
-                  Experience
+                  Strategist,
                 </motion.span>
               </span>
               <span className="block overflow-hidden pb-2 sm:pb-3">
@@ -40,7 +40,7 @@ export function Hero() {
                   variants={lineVariants}
                   className="block text-accent"
                 >
-                  Design
+                  Designer,
                 </motion.span>
               </span>
               <span className="block overflow-hidden pb-2 sm:pb-3">
@@ -51,7 +51,7 @@ export function Hero() {
                   variants={lineVariants}
                   className="block"
                 >
-                  Leader<span aria-hidden>.</span>
+                  Builder<span aria-hidden>.</span>
                 </motion.span>
               </span>
             </h1>
