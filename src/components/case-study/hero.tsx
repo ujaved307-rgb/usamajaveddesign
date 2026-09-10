@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CaseStudy } from "@/lib/types";
 import { Reveal } from "@/components/reveal";
 import { RevealImage } from "@/components/reveal-image";
@@ -26,6 +27,27 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
             >
               <span aria-hidden>🏆</span> {project.award}
             </p>
+          </Reveal>
+        )}
+
+        {project.awardLogos && project.awardLogos.length > 0 && (
+          <Reveal delay={0.15}>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {project.awardLogos.map((logo) => (
+                <span
+                  key={logo}
+                  className="flex h-14 items-center rounded-lg border border-ink/10 bg-cream-2 px-3.5"
+                >
+                  <Image
+                    src={logo}
+                    alt="Design award"
+                    width={140}
+                    height={56}
+                    className="h-9 w-auto object-contain"
+                  />
+                </span>
+              ))}
+            </div>
           </Reveal>
         )}
       </div>
