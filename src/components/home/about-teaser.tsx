@@ -10,8 +10,9 @@ export function AboutTeaser() {
       <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-16">
         <RevealImage
           src={homepage.aboutTeaserPortrait}
-          alt="Usama Javed with colleagues"
-          aspect="aspect-[16/9]"
+          alt="Usama Javed"
+          fit="cover"
+          aspect="aspect-[3/4]"
           roundedClassName="rounded-lg"
           sizes="(min-width: 768px) 480px, 100vw"
           curtain={false}

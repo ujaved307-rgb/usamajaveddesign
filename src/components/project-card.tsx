@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { CaseStudy } from "@/lib/types";
 import { Reveal } from "@/components/reveal";
 import { RevealImage } from "@/components/reveal-image";
@@ -28,10 +29,23 @@ export function ProjectCard({
               large ? "(min-width: 1024px) 1000px, 100vw" : "(min-width: 1024px) 480px, 100vw"
             }
           />
-          {project.award && (
-            <p className="absolute top-3 right-3 max-w-[75%] rounded-lg bg-cream/95 px-3 py-1.5 text-xs font-medium text-ink shadow-md">
-              <span aria-hidden>🏆</span> {project.award}
-            </p>
+          {project.awardLogos && project.awardLogos.length > 0 && (
+            <div className="absolute top-3 left-3 flex gap-2">
+              {project.awardLogos.map((logo) => (
+                <span
+                  key={logo}
+                  className="flex h-9 items-center rounded-lg bg-cream/95 px-2.5 shadow-md"
+                >
+                  <Image
+                    src={logo}
+                    alt="Design award"
+                    width={80}
+                    height={32}
+                    className="h-5 w-auto object-contain"
+                  />
+                </span>
+              ))}
+            </div>
           )}
         </div>
 

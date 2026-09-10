@@ -72,11 +72,12 @@ export const homepage = {
   aboutTeaser:
     "I'm an award-winning Experience Design Lead at Accenture Middle East, based in Riyadh. I design high-impact digital products across telecom, banking, SaaS, mobility, government platforms, airlines and smart-city ecosystems — working across both B2B and B2C environments. With a strong foundation in technology and product thinking, I specialize in transforming complex systems into clear, scalable, user-centered experiences.",
   heroPortrait: "/images/sea.jpg",
-  aboutTeaserPortrait: "/images/group.jpg",
+  aboutTeaserPortrait: "/images/scooter.jpg",
 };
 
 export const about = {
   title: "Experience Designer. Strategist. Builder.",
+  headerPortrait: "/images/group.jpg",
   intro:
     "I'm someone who takes initiative and ownership. I focus on driving clarity, solving problems beyond defined roles, and contributing to outcomes that create real business impact — a mindset that's helped me grow in confidence while enabling teams to move faster and deliver better results. I value meaningful collaboration and knowledge sharing: I've delivered design workshops at King Fahd University and actively help teams adopt emerging technologies like AI within my organization. I don't rely on traditional processes when they limit outcomes — I challenge, explore, and take full ownership of what I build. Outside of work, I travel to explore different cultures and perspectives, which continuously shapes how I think and design.",
   background: {

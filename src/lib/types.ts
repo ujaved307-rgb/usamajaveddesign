@@ -35,4 +35,6 @@ export interface CaseStudy {
   sections: CaseStudySection[];
   impact: { value: string; label: string }[];
   award?: string;
+  /** Real award-org logo marks (e.g. Red Dot, iF Design Award) shown on the card thumbnail. */
+  awardLogos?: string[];
 }
