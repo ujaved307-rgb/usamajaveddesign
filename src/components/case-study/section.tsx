@@ -28,7 +28,7 @@ export function CaseStudySectionView({ section }: { section: CaseStudySection })
 
         {section.heading && (
           <Reveal>
-            <h2 className="font-display mb-8 max-w-3xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+            <h2 className="font-display mb-8 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
               {section.heading}
             </h2>
           </Reveal>

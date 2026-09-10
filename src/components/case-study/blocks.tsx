@@ -15,18 +15,18 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
       );
 
     case "paragraph":
-      return <p className="max-w-3xl text-lg leading-relaxed text-pretty opacity-90">{block.text}</p>;
+      return <p className="text-lg leading-relaxed text-pretty opacity-90">{block.text}</p>;
 
     case "statement":
       return (
-        <p className="font-display max-w-3xl text-2xl font-semibold leading-snug tracking-tight text-balance sm:text-3xl">
+        <p className="font-display text-2xl font-semibold leading-snug tracking-tight text-balance sm:text-3xl">
           {block.text}
         </p>
       );
 
     case "list":
       return (
-        <ul className="grid max-w-3xl gap-3 sm:grid-cols-2">
+        <ul className="grid gap-3 sm:grid-cols-2">
           {block.items.map((item, i) => (
             <li key={i} className="flex gap-3 text-base leading-relaxed opacity-90">
               <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${dotColor}`} aria-hidden />
@@ -38,7 +38,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
 
     case "quote":
       return (
-        <blockquote className={`max-w-3xl border-l-4 ${quoteBorder} pl-6`}>
+        <blockquote className={`border-l-4 ${quoteBorder} pl-6`}>
           <p className="font-display text-xl font-medium leading-snug text-pretty sm:text-2xl">
             &ldquo;{block.text}&rdquo;
           </p>
