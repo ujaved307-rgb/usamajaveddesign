@@ -1,6 +1,9 @@
 import type { ChatProvider } from "@/lib/virtual-usama/providers/types";
 
-const DEFAULT_MODEL = "llama-3.3-70b-versatile";
+// Groq's catalog shifts as models get deprecated — override with the
+// GROQ_MODEL env var (no code change needed) if this one stops working too.
+// Check the current list at console.groq.com/docs/models.
+const DEFAULT_MODEL = "llama-3.1-8b-instant";
 const MAX_TOKENS = 700;
 
 /**
