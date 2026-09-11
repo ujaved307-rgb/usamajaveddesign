@@ -1,10 +1,12 @@
 import type { ChatProvider } from "@/lib/virtual-usama/providers/types";
 
-// Flash-Lite has "thinking" disabled by default (unlike 2.5 Pro/Flash, which
-// think unless told not to) — the fastest, most direct model on the free
-// tier, which is exactly what a quick recruiter Q&A needs. Override with
-// GEMINI_MODEL if Google's free-tier lineup changes.
-const DEFAULT_MODEL = "gemini-2.5-flash-lite";
+// gemini-2.5-flash-lite is closed to new users (Google's API now points
+// here explicitly on a 404 for that model). Flash-Lite has "thinking"
+// disabled by default (unlike Pro/Flash, which think unless told not to) —
+// the fastest, most direct model on the free tier, exactly what a quick
+// recruiter Q&A needs. Override with GEMINI_MODEL if Google's lineup shifts
+// again — check ai.google.dev/gemini-api/docs/models for the current list.
+const DEFAULT_MODEL = "gemini-3.5-flash-lite";
 const MAX_TOKENS = 700;
 
 /**
