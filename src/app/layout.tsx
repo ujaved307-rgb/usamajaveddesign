@@ -5,7 +5,6 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { CustomCursor } from "@/components/custom-cursor";
 import { VirtualUsamaProvider } from "@/components/virtual-usama/store";
-import { VirtualUsamaLauncher } from "@/components/virtual-usama/launcher";
 
 const googleSans = Google_Sans({
   variable: "--font-google-sans",
@@ -49,7 +48,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteNav />
           <main className="flex-1">{children}</main>
           <SiteFooter />
-          <VirtualUsamaLauncher />
         </VirtualUsamaProvider>
       </body>
     </html>
