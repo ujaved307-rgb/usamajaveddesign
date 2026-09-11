@@ -5,6 +5,9 @@ import { isRateLimited } from "@/lib/virtual-usama/rate-limit";
 import type { ChatMessage } from "@/lib/virtual-usama/providers/types";
 
 export const runtime = "nodejs";
+// Default serverless timeout can be as low as 10s — a slow/queued upstream
+// model call plus streaming the full answer can run past that.
+export const maxDuration = 30;
 
 const MAX_MESSAGE_LENGTH = 1000;
 const MAX_HISTORY = 12;
