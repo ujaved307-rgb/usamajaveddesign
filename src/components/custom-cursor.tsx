@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "motion/react";
+import { useVirtualUsama } from "@/components/virtual-usama/store";
 
 const INTERACTIVE_SELECTOR = "a, button, [role='button'], input, textarea";
 
@@ -10,6 +11,10 @@ export function CustomCursor() {
   const [hovering, setHovering] = useState(false);
   const [visible, setVisible] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  // Virtual Usama has real text to read and select — the replacement dot
+  // cursor has no text-selection affordance, so give the native cursor back
+  // for as long as that panel is open.
+  const { isOpen: isChatOpen } = useVirtualUsama();
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
@@ -18,7 +23,11 @@ export function CustomCursor() {
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
-    if (!fine || shouldReduceMotion) return;
+    if (!fine || shouldReduceMotion || isChatOpen) {
+      document.documentElement.classList.remove("no-cursor");
+      const frame = requestAnimationFrame(() => setEnabled(false));
+      return () => cancelAnimationFrame(frame);
+    }
     const frame = requestAnimationFrame(() => setEnabled(true));
     document.documentElement.classList.add("no-cursor");
 
@@ -40,7 +49,7 @@ export function CustomCursor() {
       document.documentElement.classList.remove("no-cursor");
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [shouldReduceMotion]);
+  }, [shouldReduceMotion, isChatOpen]);
 
   if (!enabled) return null;
 

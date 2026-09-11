@@ -86,16 +86,22 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="group mt-8 flex items-center gap-2.5 text-left"
+              className="group mt-8 flex items-center gap-3 rounded-full border border-ink/15 bg-cream py-2 pl-2 pr-5 text-left shadow-sm transition-colors hover:border-ink/30 hover:bg-cream-2"
             >
-              <span className="text-accent-strong" aria-hidden>
-                ✦
+              <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink">
+                <span
+                  aria-hidden
+                  className="absolute inset-0 rounded-full bg-ink/50 motion-safe:animate-[vu-ping_2.6s_cubic-bezier(0,0,0.2,1)_infinite]"
+                />
+                <span className="relative text-accent" aria-hidden>
+                  ✦
+                </span>
               </span>
               <span>
-                <span className="block text-sm font-semibold text-ink underline decoration-ink/20 underline-offset-4 transition-colors group-hover:decoration-ink/50">
-                  Meet Virtual Usama →
+                <span className="block text-sm font-semibold text-ink">
+                  Ask me anything <span className="text-ink-3 transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
-                <span className="block text-xs text-ink-3">Have a question about my work? Ask my AI.</span>
+                <span className="block text-xs text-ink-3">Virtual Usama, my AI — ask about my work</span>
               </span>
             </motion.button>
           </div>
