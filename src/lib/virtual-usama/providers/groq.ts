@@ -1,9 +1,11 @@
 import type { ChatProvider } from "@/lib/virtual-usama/providers/types";
 
-// Groq's catalog shifts as models get deprecated — override with the
-// GROQ_MODEL env var (no code change needed) if this one stops working too.
-// Check the current list at console.groq.com/docs/models.
-const DEFAULT_MODEL = "llama-3.1-8b-instant";
+// llama-3.1-8b-instant and llama-3.3-70b-versatile are Enterprise-only on
+// Groq now (hence the 404s) — openai/gpt-oss-20b is the fastest model
+// actually available on a normal developer key. Override with the
+// GROQ_MODEL env var (no code change needed) if Groq's catalog shifts
+// again — check the current list at console.groq.com/docs/models.
+const DEFAULT_MODEL = "openai/gpt-oss-20b";
 const MAX_TOKENS = 700;
 
 /**
@@ -29,6 +31,9 @@ export const groqChat: ChatProvider = async ({ systemPrompt, messages, signal })
     body: JSON.stringify({
       model: process.env.GROQ_MODEL || DEFAULT_MODEL,
       max_tokens: MAX_TOKENS,
+      // gpt-oss is a reasoning model — keep its internal reasoning short so
+      // it doesn't bleed into the visible answer or slow down streaming.
+      reasoning_effort: "low",
       messages: [{ role: "system", content: systemPrompt }, ...messages.map((m) => ({ role: m.role, content: m.content }))],
       stream: true,
     }),
