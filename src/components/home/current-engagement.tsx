@@ -6,10 +6,29 @@ import { Magnetic } from "@/components/magnetic";
 // engagement — no public screens exist to build a full case study from, so
 // this is a factual highlight (sourced from the resume) rather than a
 // ProjectCard: no invented images, no invented metrics, no link to a case
-// study page that doesn't exist. The monogram badge stands in for a real
-// product screenshot we don't have — and avoids using Nedbank's own
-// trademarked logo without permission.
+// study page that doesn't exist. The icon is a generic "stacked products"
+// glyph, not a stand-in for Nedbank's own brand mark.
 const scope = ["Credit Cards", "Personal Loans", "Overdrafts", "Investments", "Account Opening"];
+
+function StackedCardsIcon() {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <rect x="7" y="3.5" width="14" height="9.5" rx="2" opacity="0.45" />
+      <rect x="3" y="8.5" width="14" height="9.5" rx="2" />
+      <path d="M3 12.25h14" opacity="0.7" />
+    </svg>
+  );
+}
 
 const stats = [
   { value: "4", label: "Designers led" },
@@ -20,17 +39,25 @@ const stats = [
 export function CurrentEngagement() {
   return (
     <Reveal>
-      <div className="relative overflow-hidden rounded-2xl border border-ink/10 bg-gradient-to-br from-cream-2 via-cream-2 to-accent/10 p-6 sm:p-10">
+      <div className="group relative overflow-hidden rounded-2xl border border-ink/10 bg-gradient-to-br from-cream-2 via-cream-2 to-accent/15 p-6 shadow-sm transition-shadow hover:shadow-lg sm:p-10">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-accent/20 blur-3xl"
+          className="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full bg-accent/25 blur-3xl transition-transform duration-700 group-hover:scale-110"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-24 left-1/3 h-56 w-56 rounded-full bg-ink/[0.04] blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle,var(--color-ink)_1px,transparent_1px)] [background-size:18px_18px]"
         />
 
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-xl">
             <div className="flex items-center gap-4">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-ink shadow-lg">
-                <span className="font-display text-2xl font-semibold text-cream">N</span>
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-ink text-cream shadow-lg">
+                <StackedCardsIcon />
               </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
