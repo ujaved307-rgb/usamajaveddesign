@@ -73,7 +73,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 flex flex-wrap items-center gap-2.5"
+              className="mt-6 flex flex-wrap items-center gap-2.5 border-t border-ink/10 pt-6"
             >
               <span className="inline-flex h-9 items-center gap-2 rounded-full border border-ink/15 bg-cream px-3">
                 <Image
@@ -101,8 +101,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6"
+              className="mt-8"
             >
+              <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
+                Core Expertise
+              </span>
               <StickerTags items={homepage.heroSkills} />
             </motion.div>
           </div>
