@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { contact } from "@/lib/data/site";
 import { Reveal } from "@/components/reveal";
 import { Magnetic } from "@/components/magnetic";
@@ -7,8 +6,7 @@ import { Magnetic } from "@/components/magnetic";
 // engagement — no public screens exist to build a full case study from, so
 // this is a factual highlight (sourced from the resume) rather than a
 // ProjectCard: no invented images, no invented metrics, no link to a case
-// study page that doesn't exist. The logo is Nedbank's real mark (also used
-// in the client strip above), not a fabricated stand-in.
+// study page that doesn't exist.
 const scope = ["Credit Cards", "Personal Loans", "Overdrafts", "Investments", "Account Opening"];
 
 const stats = [
@@ -37,15 +35,6 @@ export function CurrentEngagement() {
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-xl">
             <div className="flex flex-wrap items-center gap-3">
-              <span className="flex h-14 items-center rounded-lg bg-cream px-4 shadow-sm">
-                <Image
-                  src="/logos/nedbank.png"
-                  alt="Nedbank"
-                  width={180}
-                  height={90}
-                  className="h-9 w-auto object-contain"
-                />
-              </span>
               <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink">
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
                 Currently Leading

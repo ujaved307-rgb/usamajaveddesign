@@ -69,7 +69,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
           <RevealImage
             src={block.src}
             alt={block.alt}
-            aspect="aspect-[16/10]"
+            aspect={block.wide ? "aspect-[2/1]" : "aspect-[16/10]"}
             bgClassName="bg-transparent"
             roundedClassName="rounded-[20px]"
             sizes="(min-width: 1024px) 1000px, 100vw"

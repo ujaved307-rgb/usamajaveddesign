@@ -43,19 +43,19 @@ export default function AboutPage() {
             priority
           />
         </Reveal>
-        <div className="mt-10 max-w-3xl">
+        <div className="mt-10">
           <Reveal>
             <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
               About
             </span>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="font-display mt-5 text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl">
+            <h1 className="font-display mt-5 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-6xl">
               {about.title}
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-2 text-pretty">
+            <p className="mt-8 text-lg leading-relaxed text-ink-2 text-pretty">
               {about.intro}
             </p>
           </Reveal>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="mt-4 max-w-xl text-cream-on-charcoal-2 text-pretty">{about.outsideWork.body}</p>
+            <p className="mt-4 text-cream-on-charcoal-2 text-pretty">{about.outsideWork.body}</p>
           </Reveal>
           <div className="mt-12">
             <PhotoCollage images={about.outsideWork.images} dark />
