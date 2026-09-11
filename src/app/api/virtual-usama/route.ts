@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { buildSystemPrompt } from "@/lib/virtual-usama/system-prompt";
-import { anthropicChat } from "@/lib/virtual-usama/providers/anthropic";
+import { getChatProvider } from "@/lib/virtual-usama/providers";
 import { isRateLimited } from "@/lib/virtual-usama/rate-limit";
 import type { ChatMessage } from "@/lib/virtual-usama/providers/types";
 
@@ -58,7 +58,8 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const stream = await anthropicChat({
+    const chat = getChatProvider();
+    const stream = await chat({
       systemPrompt: buildSystemPrompt(),
       messages: trimmed,
       signal: request.signal,
