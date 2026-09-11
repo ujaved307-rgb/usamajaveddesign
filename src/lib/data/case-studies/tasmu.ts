@@ -10,7 +10,7 @@ export const tasmu: CaseStudy = {
   role: "Product & Experience Design Lead",
   scope: "TASMU 1.0 and 2.0 — national smart-city platform",
   platform: "Web platform, Digital Twin, ICCC, Cognitive AI",
-  cardTagline: "Unifying Qatar's Smart City Intelligence — MCIT Qatar",
+  cardTagline: "Unifying Qatar's Smart City Intelligence — bringing 36+ products and services into one national platform for MCIT Qatar.",
   hook: "How do you turn a national smart-city vision into a platform that ministries, sector leads and citizens can actually run on?",
   heroImage: "https://framerusercontent.com/images/72EZIKexnHmEzb1EMzgGIQZQ8.png",
   color: "#6C5CE7",
