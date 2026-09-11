@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "motion/react";
 import { homepage, contact } from "@/lib/data/site";
-import { StickerTags } from "@/components/sticker-tag";
 import { ClientMarquee } from "@/components/client-marquee";
 import { RevealImage } from "@/components/reveal-image";
 
@@ -95,18 +94,6 @@ export function Hero() {
                 />
                 <span className="text-xs font-semibold text-ink-2">Red Dot Design Award 2026</span>
               </span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8"
-            >
-              <span className="mb-3 block text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
-                Core Expertise
-              </span>
-              <StickerTags items={homepage.heroSkills} />
             </motion.div>
           </div>
 
