@@ -73,6 +73,20 @@ export const homepage = {
     "I'm an award-winning Experience Design Lead at Accenture Middle East, based in Riyadh. I design high-impact digital products across telecom, banking, SaaS, mobility, government platforms, airlines and smart-city ecosystems — working across both B2B and B2C environments. With a strong foundation in technology and product thinking, I specialize in transforming complex systems into clear, scalable, user-centered experiences.",
   heroPortrait: "/images/sea.jpg",
   aboutTeaserPortrait: "/images/scooter.jpg",
+  aiTools: {
+    heading: "AI-Native Toolset",
+    subline: "Tools I use in active client delivery, not experiments.",
+    items: [
+      { name: "Figma Make", logo: "/logos/figma.svg" },
+      { name: "Replit", logo: "/logos/replit.svg" },
+      { name: "Lovable" },
+      { name: "Claude", logo: "/logos/claude.svg" },
+      { name: "Google Stitch" },
+      { name: "DALL·E" },
+      { name: "Runway" },
+      { name: "Veo 3" },
+    ],
+  },
 };
 
 export const about = {

@@ -10,7 +10,8 @@ export const rcrc: CaseStudy = {
   role: "Experience Design Lead",
   scope: "10+ multi-sector government projects",
   platform: "Web platform (employee & public-facing)",
-  cardTagline: "Transforming Complex Government Ecosystems into Scalable Digital Experiences",
+  cardTagline:
+    "Transforming Complex Government Ecosystems into Scalable Digital Experiences — a design system delivered across 12+ government service touchpoints.",
   hook: "How do you bring design maturity to an organization shaping the future of a capital city — one platform, one workshop, one trust-building conversation at a time?",
   heroImage: "https://framerusercontent.com/images/dVdmpyV8hdR5qQkngeJMgRnd0E.jpg",
   color: "#A66B08",

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
 import { homepage, contact } from "@/lib/data/site";
 import { StickerTags } from "@/components/sticker-tag";
@@ -71,8 +72,36 @@ export function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8"
+              transition={{ duration: 0.7, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-5 flex flex-wrap items-center gap-2.5"
+            >
+              <span className="inline-flex h-9 items-center gap-2 rounded-full border border-ink/15 bg-cream px-3">
+                <Image
+                  src="/logos/if-award.png"
+                  alt=""
+                  width={80}
+                  height={28}
+                  className="h-5 w-auto object-contain"
+                />
+                <span className="text-xs font-semibold text-ink-2">iF Design Award 2026</span>
+              </span>
+              <span className="inline-flex h-9 items-center gap-2 rounded-full border border-ink/15 bg-cream px-3">
+                <Image
+                  src="/logos/reddot.png"
+                  alt=""
+                  width={80}
+                  height={28}
+                  className="h-5 w-auto object-contain"
+                />
+                <span className="text-xs font-semibold text-ink-2">Red Dot Design Award 2026</span>
+              </span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6"
             >
               <StickerTags items={homepage.heroSkills} />
             </motion.div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { contact } from "@/lib/data/site";
 import { Reveal } from "@/components/reveal";
 import { Magnetic } from "@/components/magnetic";
@@ -6,7 +7,8 @@ import { Magnetic } from "@/components/magnetic";
 // engagement — no public screens exist to build a full case study from, so
 // this is a factual highlight (sourced from the resume) rather than a
 // ProjectCard: no invented images, no invented metrics, no link to a case
-// study page that doesn't exist.
+// study page that doesn't exist. The logo is Nedbank's real mark (also used
+// in the client strip above), not a fabricated stand-in.
 const scope = ["Credit Cards", "Personal Loans", "Overdrafts", "Investments", "Account Opening"];
 
 const stats = [
@@ -34,18 +36,35 @@ export function CurrentEngagement() {
 
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
-              Currently Leading
-            </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="flex h-14 items-center rounded-lg bg-cream px-4 shadow-sm">
+                <Image
+                  src="/logos/nedbank.png"
+                  alt="Nedbank"
+                  width={180}
+                  height={90}
+                  className="h-9 w-auto object-contain"
+                />
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
+                Currently Leading
+              </span>
+              <span className="rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-2">
+                Banking &amp; Fintech
+              </span>
+            </div>
 
-            <h3 className="font-display mt-5 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-              Nedbank South Africa — Apply Hub
+            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
+              Nedbank South Africa
+            </p>
+            <h3 className="font-display mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              Leading the Apply Hub — End-to-End Digital Banking Experience
             </h3>
             <p className="mt-3 text-base leading-relaxed text-ink-2">
-              Leading a pod of 4 designers on Nedbank&rsquo;s digital banking platform — end-to-end product
-              design strategy, design system standards and cross-functional alignment across product,
-              engineering, compliance and business, for both New-to-Bank and Existing-to-Bank customers.
+              Led a pod of 4 designers delivering credit cards, personal loans, overdrafts, investments, and
+              account opening journeys — navigating NCA compliance, POPIA, and bureau decisioning logic to
+              turn regulated complexity into trustworthy customer experiences.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">

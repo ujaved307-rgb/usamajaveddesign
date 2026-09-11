@@ -19,34 +19,35 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
           </h1>
         </Reveal>
 
-        {project.award && (
+        {(project.award || (project.awardLogos && project.awardLogos.length > 0)) && (
           <Reveal delay={0.1}>
-            <p
-              className="mt-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-ink"
-              style={{ backgroundColor: project.colorSoft }}
+            <div
+              className="mt-6 flex flex-wrap items-center gap-4 rounded-2xl border-2 px-5 py-4"
+              style={{ backgroundColor: project.colorSoft, borderColor: project.color }}
             >
-              <span aria-hidden>🏆</span> {project.award}
-            </p>
-          </Reveal>
-        )}
-
-        {project.awardLogos && project.awardLogos.length > 0 && (
-          <Reveal delay={0.15}>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {project.awardLogos.map((logo) => (
-                <span
-                  key={logo}
-                  className="flex h-14 items-center rounded-lg border border-ink/10 bg-cream-2 px-3.5"
-                >
-                  <Image
-                    src={logo}
-                    alt="Design award"
-                    width={140}
-                    height={56}
-                    className="h-9 w-auto object-contain"
-                  />
-                </span>
-              ))}
+              {project.awardLogos && project.awardLogos.length > 0 && (
+                <div className="flex flex-wrap gap-3">
+                  {project.awardLogos.map((logo) => (
+                    <span
+                      key={logo}
+                      className="flex h-16 items-center rounded-lg bg-cream px-4 shadow-sm"
+                    >
+                      <Image
+                        src={logo}
+                        alt="Design award"
+                        width={160}
+                        height={64}
+                        className="h-10 w-auto object-contain"
+                      />
+                    </span>
+                  ))}
+                </div>
+              )}
+              {project.award && (
+                <p className="text-base font-semibold text-ink">
+                  <span aria-hidden>🏆</span> {project.award}
+                </p>
+              )}
             </div>
           </Reveal>
         )}

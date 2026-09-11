@@ -19,22 +19,29 @@ export function StatValue({ value, className }: { value: string; className?: str
   const inView = useInView(ref, { once: true, margin: "0px 0px 200px 0px" });
   const shouldReduceMotion = useReducedMotion();
   const parsed = parseValue(value);
-  const [display, setDisplay] = useState(parsed ? `${parsed.prefix}0${parsed.suffix}` : value);
+  // The real value is the fallback, not zero: it's what server-rendered
+  // markup shows before hydration, and what stays on screen if JS never
+  // runs at all. A bare "0" at that point reads as a broken page, not an
+  // animation — the count-up (when it does run) starts from most of the
+  // way there instead, so no frame ever shows a literal zero.
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!parsed || !inView) return;
-    const duration = shouldReduceMotion ? 0 : 700;
+    const duration = shouldReduceMotion ? 0 : 600;
+    const startProgress = shouldReduceMotion ? 1 : 0.45;
     const start = performance.now();
     let frame: number;
 
     const tick = (now: number) => {
-      const progress = duration === 0 ? 1 : Math.min((now - start) / duration, 1);
+      const elapsed = duration === 0 ? 1 : Math.min((now - start) / duration, 1);
+      const progress = startProgress + elapsed * (1 - startProgress);
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = parsed.number * eased;
       setDisplay(
         `${parsed.prefix}${current.toFixed(parsed.decimals)}${parsed.suffix}`
       );
-      if (progress < 1) frame = requestAnimationFrame(tick);
+      if (elapsed < 1) frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
