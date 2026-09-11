@@ -20,12 +20,12 @@ export const homepage = {
     "10+ years designing complex digital experiences across government, enterprise, aviation, fintech, mobility and smart cities — for GCC and global organizations, with an AI-native design practice.",
   heroSkills: [
     "Product Strategy",
+    "Design Systems",
+    "0→1 Product Design",
+    "AI-Native Design",
     "Design Leadership",
-    "UX Strategy",
-    "Workshop Facilitation",
-    "AI-Driven Process",
+    "Journey Mapping",
     "Stakeholder Alignment",
-    "Customer Experience Journey",
   ],
   clients: [
     { name: "Accenture", logo: "/logos/accenture.png" },
