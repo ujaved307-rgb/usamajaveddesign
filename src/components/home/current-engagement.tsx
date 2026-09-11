@@ -6,29 +6,8 @@ import { Magnetic } from "@/components/magnetic";
 // engagement — no public screens exist to build a full case study from, so
 // this is a factual highlight (sourced from the resume) rather than a
 // ProjectCard: no invented images, no invented metrics, no link to a case
-// study page that doesn't exist. The icon is a generic "stacked products"
-// glyph, not a stand-in for Nedbank's own brand mark.
+// study page that doesn't exist.
 const scope = ["Credit Cards", "Personal Loans", "Overdrafts", "Investments", "Account Opening"];
-
-function StackedCardsIcon() {
-  return (
-    <svg
-      width="26"
-      height="26"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <rect x="7" y="3.5" width="14" height="9.5" rx="2" opacity="0.45" />
-      <rect x="3" y="8.5" width="14" height="9.5" rx="2" />
-      <path d="M3 12.25h14" opacity="0.7" />
-    </svg>
-  );
-}
 
 const stats = [
   { value: "4", label: "Designers led" },
@@ -55,15 +34,10 @@ export function CurrentEngagement() {
 
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-xl">
-            <div className="flex items-center gap-4">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-ink text-cream shadow-lg">
-                <StackedCardsIcon />
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
-                Currently Leading
-              </span>
-            </div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-cream px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
+              Currently Leading
+            </span>
 
             <h3 className="font-display mt-5 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
               Nedbank South Africa — Apply Hub
