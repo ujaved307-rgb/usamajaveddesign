@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { CustomCursor } from "@/components/custom-cursor";
+import { Analytics } from "@vercel/analytics/next";
 import { VirtualUsamaProvider } from "@/components/virtual-usama/store";
 
 const googleSans = Google_Sans({
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main className="flex-1">{children}</main>
           <SiteFooter />
         </VirtualUsamaProvider>
+        <Analytics />
       </body>
     </html>
   );
