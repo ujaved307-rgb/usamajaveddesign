@@ -4,6 +4,7 @@ import { homepage } from "@/lib/data/site";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
 import { Magnetic } from "@/components/magnetic";
+import { CurrentEngagement } from "@/components/home/current-engagement";
 
 export function SelectedWork() {
   const [first, ...rest] = caseStudies.slice(0, 4);
@@ -21,7 +22,11 @@ export function SelectedWork() {
         </h2>
       </Reveal>
 
-      <div className="mt-10 flex flex-col gap-8">
+      <div className="mt-10">
+        <CurrentEngagement />
+      </div>
+
+      <div className="mt-8 flex flex-col gap-8">
         <ProjectCard project={first} large />
         <div className="grid gap-8 sm:grid-cols-2">
           {rest.map((project) => (

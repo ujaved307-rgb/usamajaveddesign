@@ -169,10 +169,6 @@ export const stcKuwait: CaseStudy = {
             { value: "15%", label: "increase in engagement across key journeys" },
           ],
         },
-        {
-          type: "quote",
-          text: "This was not just a redesign effort. It was about bringing clarity to a complex system, aligning teams around what matters most, and enabling scalable, high-impact decision-making.",
-        },
       ],
     },
     {

@@ -53,7 +53,7 @@ export default function StrategyAiPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="mt-4 max-w-2xl text-ink-2 text-pretty">{strategyAi.process.body}</p>
+            <p className="mt-4 text-ink-2 text-pretty">{strategyAi.process.body}</p>
           </Reveal>
 
           <RevealGroup className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">

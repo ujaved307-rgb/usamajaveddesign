@@ -10,7 +10,8 @@ export const dubaiHolding: CaseStudy = {
   role: "Lead UX/UI Designer (Accenture)",
   scope: "Unified resident mobile app — RFP win to ongoing program",
   platform: "Mobile app",
-  cardTagline: "Winning & Designing Dubai Holding's Smart Community Platform",
+  cardTagline:
+    "Won the pitch and delivered Dubai Holding's Smart Community Platform UX end to end.",
   hook: "World-class communities deserve a digital experience that matches them — Dubai Holding's residents were still juggling disconnected systems for everyday life.",
   heroImage: "https://framerusercontent.com/images/NTGUOQbqb4g4Ck5D1RxSoqPDhHo.png",
   color: "#0FA35E",

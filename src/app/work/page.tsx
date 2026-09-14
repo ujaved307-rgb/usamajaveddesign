@@ -22,7 +22,7 @@ export default function WorkPage() {
         </h1>
       </Reveal>
       <Reveal delay={0.1}>
-        <p className="mt-6 max-w-2xl text-lg text-ink-2 text-pretty">{homepage.workIntro}</p>
+        <p className="mt-6 text-lg text-ink-2 text-pretty">{homepage.workIntro}</p>
       </Reveal>
 
       <div className="mt-12 grid gap-8 sm:grid-cols-2">
