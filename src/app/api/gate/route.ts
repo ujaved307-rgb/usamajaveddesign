@@ -10,12 +10,13 @@ export async function POST(request: NextRequest) {
   }
 
   const response = NextResponse.json({ ok: true });
+  // No maxAge/expires: this is a session cookie, cleared when the browser closes,
+  // so the password is asked again on every new visit.
   response.cookies.set(GATE_COOKIE_NAME, await computeGateToken(), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
-    maxAge: 60 * 60 * 24 * 30,
   });
   return response;
 }
