@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Google_Sans } from "next/font/google";
 import "./globals.css";
-import { SiteNav } from "@/components/site-nav";
-import { SiteFooter } from "@/components/site-footer";
+import { SiteChrome } from "@/components/site-chrome";
 import { CustomCursor } from "@/components/custom-cursor";
 import { VirtualUsamaProvider } from "@/components/virtual-usama/store";
 
@@ -45,9 +44,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-cream text-ink">
         <VirtualUsamaProvider>
           <CustomCursor />
-          <SiteNav />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
+          <SiteChrome>{children}</SiteChrome>
         </VirtualUsamaProvider>
       </body>
     </html>
