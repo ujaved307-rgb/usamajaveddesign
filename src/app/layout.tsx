@@ -3,6 +3,7 @@ import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteChrome } from "@/components/site-chrome";
 import { CustomCursor } from "@/components/custom-cursor";
+import { Analytics } from "@vercel/analytics/next";
 import { VirtualUsamaProvider } from "@/components/virtual-usama/store";
 
 const googleSans = Google_Sans({
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <CustomCursor />
           <SiteChrome>{children}</SiteChrome>
         </VirtualUsamaProvider>
+        <Analytics />
       </body>
     </html>
   );
