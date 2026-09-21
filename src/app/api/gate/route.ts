@@ -10,10 +10,11 @@ export async function POST(request: NextRequest) {
   }
 
   const response = NextResponse.json({ ok: true });
-  // No maxAge/expires: this is a session cookie, cleared when the browser closes,
-  // so the password is asked again on every new visit.
+  // No maxAge/expires: session cookie only. httpOnly is off on purpose —
+  // GateSessionGuard needs to delete it client-side, synchronously, on
+  // pagehide so a refresh can never race ahead of an async server call.
   response.cookies.set(GATE_COOKIE_NAME, await computeGateToken(), {
-    httpOnly: true,
+    httpOnly: false,
     secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
