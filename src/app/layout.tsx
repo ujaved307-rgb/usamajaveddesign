@@ -3,7 +3,6 @@ import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteChrome } from "@/components/site-chrome";
 import { CustomCursor } from "@/components/custom-cursor";
-import { GateSessionGuard } from "@/components/gate-session-guard";
 import { Analytics } from "@vercel/analytics/next";
 import { VirtualUsamaProvider } from "@/components/virtual-usama/store";
 
@@ -46,7 +45,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-cream text-ink">
         <VirtualUsamaProvider>
           <CustomCursor />
-          <GateSessionGuard />
           <SiteChrome>{children}</SiteChrome>
         </VirtualUsamaProvider>
         <Analytics />
