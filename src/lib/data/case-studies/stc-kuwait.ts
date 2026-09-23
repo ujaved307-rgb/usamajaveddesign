@@ -23,6 +23,14 @@ export const stcKuwait: CaseStudy = {
     { value: "+22 pts", label: "improvement in usability score" },
     { value: "15%", label: "increase in engagement across key journeys" },
   ],
+  designThinking: {
+    problem: { label: "300+ UX issues across fragmented digital channels", href: "#problem" },
+    insight: { label: "Users were abandoning at self-service touchpoints", href: "#problem" },
+    approach: { label: "Prioritise by frequency and business impact", href: "#approach" },
+    decision: { label: "Redesigned SIM device and account management journeys", href: "#design" },
+    outcome: { label: "35% drop-off reduction post-launch", href: "#impact" },
+    impact: { label: "Unified experience across web and mobile channels", href: "#reflection" },
+  },
   sections: [
     {
       id: "snapshot",

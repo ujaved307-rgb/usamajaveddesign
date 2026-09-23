@@ -20,6 +20,14 @@ export const dubaiHolding: CaseStudy = {
     { value: "1 RFP", label: "won competitively for Dubai Holding Properties" },
     { value: "Ongoing", label: "the engagement has evolved into a continuing internal program" },
   ],
+  designThinking: {
+    problem: { label: "Smart community platform needed to be built from zero", href: "#problem" },
+    insight: { label: "Stakeholders needed to see the vision before committing", href: "#snapshot" },
+    approach: { label: "Rapid prototype to win internal alignment first", href: "#approach" },
+    decision: { label: "Won the pitch then led full end-to-end platform delivery", href: "#role" },
+    outcome: { label: "Complete platform UX delivered and approved", href: "#highlights" },
+    impact: { label: "Established design standards for ongoing community product", href: "#reflection" },
+  },
   sections: [
     {
       id: "snapshot",

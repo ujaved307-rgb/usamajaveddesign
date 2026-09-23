@@ -5,6 +5,7 @@ import { CaseStudyHero } from "@/components/case-study/hero";
 import { CaseStudySectionView } from "@/components/case-study/section";
 import { NextProject } from "@/components/case-study/next-project";
 import { SectionRail } from "@/components/case-study/section-rail";
+import { DesignThinkingBar } from "@/components/design-thinking-bar";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -37,6 +38,7 @@ export default async function CaseStudyPage(props: PageProps<"/work/[slug]">) {
   return (
     <article>
       <CaseStudyHero project={project} />
+      {project.designThinking && <DesignThinkingBar {...project.designThinking} />}
       <SectionRail sectionIds={project.sections.map((s) => s.id)} color={project.color} />
       {project.sections.map((section) => (
         <CaseStudySectionView key={section.id} section={section} />

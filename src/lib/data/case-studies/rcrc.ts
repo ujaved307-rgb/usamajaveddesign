@@ -20,6 +20,14 @@ export const rcrc: CaseStudy = {
     { value: "10+", label: "multi-sector government projects delivered" },
     { value: "200+", label: "screens redesigned across the Bawabaty Portal" },
   ],
+  designThinking: {
+    problem: { label: "Government services spread across disconnected touchpoints", href: "#bawabaty-intro" },
+    insight: { label: "Citizens could not navigate without physical help", href: "#research" },
+    approach: { label: "Map the full service blueprint before designing screens", href: "#process" },
+    decision: { label: "Built scalable design system across all service types", href: "#solution" },
+    outcome: { label: "System delivered across 12 plus government touchpoints", href: "#outcome" },
+    impact: { label: "Consistent accessible experience across all channels", href: "#reflection" },
+  },
   sections: [
     {
       id: "snapshot",

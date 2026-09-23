@@ -23,6 +23,14 @@ export const tasmu: CaseStudy = {
     { value: "50–60%", label: "fewer design iterations" },
     { value: "36+", label: "products and services unified into one platform" },
   ],
+  designThinking: {
+    problem: { label: "Operators did not trust AI generated alerts", href: "#challenge-1" },
+    insight: { label: "Black box AI creates hesitation not action", href: "#insights" },
+    approach: { label: "Make AI reasoning visible and overridable", href: "#process-2" },
+    decision: { label: "Designed confidence layer with source transparency", href: "#core-products" },
+    outcome: { label: "iF Design Award 2026 and Red Dot Award", href: "#outcomes" },
+    impact: { label: "National scale adoption across Qatar government", href: "#reflection" },
+  },
   sections: [
     {
       id: "at-a-glance",
