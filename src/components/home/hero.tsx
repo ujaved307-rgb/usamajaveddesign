@@ -38,9 +38,9 @@ export function Hero() {
                   initial="hidden"
                   animate="visible"
                   variants={lineVariants}
-                  className="block text-accent"
+                  className="block"
                 >
-                  at Accenture, ME
+                  at <span className="text-[#A100FF]">Accenture, ME</span>
                 </motion.span>
               </span>
             </h1>
