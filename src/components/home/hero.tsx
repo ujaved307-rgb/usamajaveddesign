@@ -20,7 +20,7 @@ export function Hero() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-12">
           <div>
-            <h1 className="font-display text-[15vw] font-semibold leading-[0.92] tracking-tight sm:text-[6.5rem] md:text-[7.5rem]">
+            <h1 className="font-display text-[13vw] font-semibold leading-[0.92] tracking-tight sm:text-[4.25rem] md:text-[4.75rem]">
               <span className="block overflow-hidden pb-2 sm:pb-3">
                 <motion.span
                   custom={0}
@@ -29,7 +29,7 @@ export function Hero() {
                   variants={lineVariants}
                   className="block"
                 >
-                  Strategist,
+                  Design Leader
                 </motion.span>
               </span>
               <span className="block overflow-hidden pb-2 sm:pb-3">
@@ -40,18 +40,7 @@ export function Hero() {
                   variants={lineVariants}
                   className="block text-accent"
                 >
-                  Designer,
-                </motion.span>
-              </span>
-              <span className="block overflow-hidden pb-2 sm:pb-3">
-                <motion.span
-                  custom={2}
-                  initial="hidden"
-                  animate="visible"
-                  variants={lineVariants}
-                  className="block"
-                >
-                  Builder<span aria-hidden>.</span>
+                  at Accenture, ME
                 </motion.span>
               </span>
             </h1>
