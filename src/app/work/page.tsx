@@ -3,6 +3,7 @@ import { caseStudies } from "@/lib/data/case-studies";
 import { homepage } from "@/lib/data/site";
 import { ProjectCard } from "@/components/project-card";
 import { Reveal } from "@/components/reveal";
+import { CurrentEngagement } from "@/components/home/current-engagement";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -25,7 +26,11 @@ export default function WorkPage() {
         <p className="mt-6 text-lg text-ink-2 text-pretty">{homepage.workIntro}</p>
       </Reveal>
 
-      <div className="mt-12 grid gap-8 sm:grid-cols-2">
+      <div className="mt-12">
+        <CurrentEngagement />
+      </div>
+
+      <div className="mt-8 grid gap-8 sm:grid-cols-2">
         {caseStudies.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
