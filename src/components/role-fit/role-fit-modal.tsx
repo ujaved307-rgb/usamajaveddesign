@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Magnetic } from "@/components/magnetic";
+import { StickerTags } from "@/components/sticker-tag";
 import { contact } from "@/lib/data/site";
 import { RoleFitLoading } from "@/components/role-fit/role-fit-loading";
 import { useRoleFit } from "@/components/role-fit/role-fit-context";
@@ -304,6 +305,17 @@ export function RoleFitModal() {
                             </li>
                           ))}
                         </ul>
+                      </div>
+                    )}
+
+                    {result.matchedSkills.length > 0 && (
+                      <div className="mt-7">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-ink-3">
+                          Skills that match
+                        </span>
+                        <div className="mt-3">
+                          <StickerTags items={result.matchedSkills} />
+                        </div>
                       </div>
                     )}
 
