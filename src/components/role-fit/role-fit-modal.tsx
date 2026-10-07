@@ -314,7 +314,7 @@ export function RoleFitModal() {
                     {result.gaps.length > 0 && (
                       <div className="mt-6">
                         <span className="text-xs font-semibold uppercase tracking-wide text-ink-3">
-                          Worth discussing
+                          Where we&rsquo;d ramp up together
                         </span>
                         <ul className="mt-3 flex flex-col gap-2">
                           {result.gaps.map((g, i) => (

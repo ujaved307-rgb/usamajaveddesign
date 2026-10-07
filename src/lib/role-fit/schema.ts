@@ -23,7 +23,7 @@ export const RoleFitResultSchema = z.object({
     .array(z.string())
     .max(4)
     .describe(
-      "0-4 short, honest bullet points naming real gaps or mismatches versus this specific role. Empty array only if there are genuinely none — don't manufacture a gap just to seem balanced."
+      "0-4 short, honest bullet points naming real gaps or mismatches versus this specific role. Frame each one constructively — as something to ramp up on or discuss in conversation — rather than as a blunt deficiency, without softening it into something false. Empty array only if there are genuinely none — don't manufacture a gap just to seem balanced."
     ),
   message: z
     .string()
