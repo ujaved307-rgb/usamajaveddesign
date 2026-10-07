@@ -311,22 +311,6 @@ export function RoleFitModal() {
                       </div>
                     )}
 
-                    {result.gaps.length > 0 && (
-                      <div className="mt-6">
-                        <span className="text-xs font-semibold uppercase tracking-wide text-ink-3">
-                          Where we&rsquo;d ramp up together
-                        </span>
-                        <ul className="mt-3 flex flex-col gap-2">
-                          {result.gaps.map((g, i) => (
-                            <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-ink-2">
-                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink-3" aria-hidden />
-                              <span>{g}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
                     <blockquote className="mt-7 border-l-4 border-ink/15 pl-5 text-ink-2 text-pretty">
                       {result.message}
                     </blockquote>
