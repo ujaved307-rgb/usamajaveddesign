@@ -1,7 +1,13 @@
 import { PDFParse } from "pdf-parse";
+import { getPath } from "pdf-parse/worker";
 import mammoth from "mammoth";
 import { MAX_FILE_BYTES } from "@/lib/role-fit/constants";
 import { ExtractionError } from "@/lib/role-fit/errors";
+
+// pdf-parse v2 runs PDF parsing in a worker thread. In serverless runtimes
+// (Vercel) the default auto-detected worker path can fail to resolve, so
+// point it explicitly at the worker bundled with the installed package.
+PDFParse.setWorker(getPath());
 
 export async function extractTextFromFile(file: File): Promise<string> {
   if (file.size > MAX_FILE_BYTES) {
@@ -12,14 +18,15 @@ export async function extractTextFromFile(file: File): Promise<string> {
   const arrayBuffer = await file.arrayBuffer();
 
   if (name.endsWith(".pdf") || file.type === "application/pdf") {
-    const parser = new PDFParse({ data: new Uint8Array(arrayBuffer) });
+    let parser: PDFParse | undefined;
     try {
+      parser = new PDFParse({ data: new Uint8Array(arrayBuffer) });
       const result = await parser.getText();
       return result.text;
     } catch {
       throw new ExtractionError("Couldn't read that PDF — it may be scanned/image-based or corrupted.");
     } finally {
-      await parser.destroy();
+      await parser?.destroy();
     }
   }
 

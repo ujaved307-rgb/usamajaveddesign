@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
     if (err instanceof ExtractionError) {
       return NextResponse.json({ error: err.message }, { status: 400 });
     }
+    console.error("role-fit submission read failed:", err);
     return NextResponse.json({ error: "Couldn't read that submission." }, { status: 400 });
   }
 
