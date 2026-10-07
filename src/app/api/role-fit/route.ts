@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { isRateLimited } from "@/lib/virtual-usama/rate-limit";
-import { extractTextFromFile, ExtractionError } from "@/lib/role-fit/extract-text";
+import { ExtractionError } from "@/lib/role-fit/errors";
 import { RoleFitResultSchema } from "@/lib/role-fit/schema";
 import { buildRoleFitSystemPrompt, wrapJobDescription } from "@/lib/role-fit/system-prompt";
 
@@ -35,6 +35,7 @@ export async function POST(request: NextRequest) {
     const file = formData.get("file");
 
     if (file instanceof File && file.size > 0) {
+      const { extractTextFromFile } = await import("@/lib/role-fit/extract-text");
       jdText = await extractTextFromFile(file);
     } else if (typeof pastedText === "string" && pastedText.trim().length > 0) {
       jdText = pastedText;

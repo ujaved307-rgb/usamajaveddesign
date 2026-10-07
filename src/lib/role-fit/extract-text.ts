@@ -1,8 +1,7 @@
 import { PDFParse } from "pdf-parse";
 import mammoth from "mammoth";
 import { MAX_FILE_BYTES } from "@/lib/role-fit/constants";
-
-export class ExtractionError extends Error {}
+import { ExtractionError } from "@/lib/role-fit/errors";
 
 export async function extractTextFromFile(file: File): Promise<string> {
   if (file.size > MAX_FILE_BYTES) {
