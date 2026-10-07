@@ -16,6 +16,15 @@ const ACCEPTED_EXTENSIONS = ".pdf,.docx,.txt";
 
 type Status = "idle" | "loading" | "result" | "error";
 
+function RoleFitEyebrow() {
+  return (
+    <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-ink/[0.03] px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
+      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" aria-hidden />
+      Role Fit Check
+    </span>
+  );
+}
+
 export function RoleFitModal() {
   const { isOpen, closeRoleFit } = useRoleFit();
   const [status, setStatus] = useState<Status>("idle");
@@ -173,6 +182,19 @@ export function RoleFitModal() {
             transition={{ duration: shouldReduceMotion ? 0 : 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="relative flex max-h-[90vh] w-full max-w-xl flex-col overflow-hidden rounded-[28px] border border-ink/10 bg-cream shadow-2xl"
           >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-20 -top-28 h-64 w-64 rounded-full bg-accent/15 blur-[90px]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-accent-strong/10 blur-[90px]"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:radial-gradient(circle,var(--color-ink)_1px,transparent_1px)] [background-size:20px_20px]"
+            />
+
             <button
               type="button"
               aria-label="Close"
@@ -182,24 +204,20 @@ export function RoleFitModal() {
               <span aria-hidden>✕</span>
             </button>
 
-            <div className="overflow-y-auto px-6 py-8 sm:px-9 sm:py-10">
+            <div className="relative overflow-y-auto px-6 py-8 sm:px-9 sm:py-10">
               {status === "loading" ? (
                 <>
-                  <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
-                    Role Fit Check
-                  </span>
+                  <RoleFitEyebrow />
                   <RoleFitLoading />
                 </>
               ) : status === "idle" || status === "error" ? (
                 <>
-                  <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
-                    Role Fit Check
-                  </span>
+                  <RoleFitEyebrow />
                   <h2
                     id="role-fit-title"
-                    className="font-display mt-3 text-2xl font-semibold tracking-tight text-balance sm:text-3xl"
+                    className="font-display mt-4 text-2xl font-semibold tracking-tight text-balance sm:text-3xl"
                   >
-                    How I fit your organization
+                    How I fit <span className="text-accent">your organization</span>
                   </h2>
                   <p className="mt-3 text-ink-2 text-pretty">
                     Paste a job description or upload the file — I&rsquo;ll compare it against my
@@ -272,7 +290,7 @@ export function RoleFitModal() {
                     <button
                       type="submit"
                       disabled={!canSubmit}
-                      className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-cream transition-opacity hover:opacity-85 disabled:opacity-50"
+                      className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-cream shadow-[0_10px_30px_-10px_rgba(232,90,40,0.5)] transition-[opacity,transform] hover:opacity-85 disabled:opacity-50 disabled:shadow-none enabled:hover:scale-[1.02]"
                     >
                       Check my fit
                       <span aria-hidden>→</span>
@@ -282,9 +300,7 @@ export function RoleFitModal() {
               ) : (
                 result && (
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-3">
-                      Role Fit Check
-                    </span>
+                    <RoleFitEyebrow />
 
                     <p className="font-display mt-4 text-2xl font-semibold leading-snug tracking-tight text-balance">
                       {result.headline}
