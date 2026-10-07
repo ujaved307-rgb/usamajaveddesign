@@ -1,13 +1,12 @@
 import { PDFParse } from "pdf-parse";
 import mammoth from "mammoth";
+import { MAX_FILE_BYTES } from "@/lib/role-fit/constants";
 
 export class ExtractionError extends Error {}
 
-const MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB — a text-based JD file is never legitimately bigger
-
 export async function extractTextFromFile(file: File): Promise<string> {
   if (file.size > MAX_FILE_BYTES) {
-    throw new ExtractionError("That file is too large — please keep it under 8MB.");
+    throw new ExtractionError("That file is too large — please keep it under 4MB.");
   }
 
   const name = file.name.toLowerCase();

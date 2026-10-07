@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Magnetic } from "@/components/magnetic";
 import { contact } from "@/lib/data/site";
 import { ScoreRing } from "@/components/role-fit/score-ring";
+import { MAX_FILE_BYTES } from "@/lib/role-fit/constants";
 import type { RoleFitResult } from "@/lib/role-fit/schema";
 
 const FOCUSABLE_SELECTOR =
@@ -104,22 +105,42 @@ export function RoleFit() {
     setStatus("loading");
     setErrorMessage("");
 
+    let res: Response;
     try {
-      const res = await fetch("/api/role-fit", { method: "POST", body: formData });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setErrorMessage(data.error || "Something went wrong — please try again.");
-        setStatus("error");
-        return;
-      }
-
-      setResult(data as RoleFitResult);
-      setStatus("result");
+      res = await fetch("/api/role-fit", { method: "POST", body: formData });
     } catch {
       setErrorMessage("Couldn't reach the server — check your connection and try again.");
       setStatus("error");
+      return;
     }
+
+    // A response that never reached our route handler (platform timeout,
+    // body-size limit, etc.) won't be JSON — surface the real HTTP status
+    // instead of a generic message so a future failure is self-diagnosing.
+    let data: unknown;
+    try {
+      data = await res.json();
+    } catch {
+      setErrorMessage(
+        res.status === 413
+          ? "That submission was too large for the server to accept — please try a shorter JD or a smaller file."
+          : res.status === 504
+            ? "The analysis took too long and timed out — please try again."
+            : `Unexpected server error (HTTP ${res.status}) — please try again.`
+      );
+      setStatus("error");
+      return;
+    }
+
+    if (!res.ok) {
+      const errorData = data as { error?: string };
+      setErrorMessage(errorData.error || "Something went wrong — please try again.");
+      setStatus("error");
+      return;
+    }
+
+    setResult(data as RoleFitResult);
+    setStatus("result");
   }
 
   const canSubmit = status !== "loading" && (file !== null || jdText.trim().length > 0);
@@ -235,10 +256,15 @@ export function RoleFit() {
                             disabled={status === "loading"}
                             onChange={(e) => {
                               const picked = e.target.files?.[0];
-                              if (picked) {
-                                setFile(picked);
-                                setJdText("");
+                              if (!picked) return;
+                              if (picked.size > MAX_FILE_BYTES) {
+                                setErrorMessage("That file is too large — please keep it under 4MB.");
+                                setStatus("error");
+                                if (fileInputRef.current) fileInputRef.current.value = "";
+                                return;
                               }
+                              setFile(picked);
+                              setJdText("");
                             }}
                           />
                         </label>

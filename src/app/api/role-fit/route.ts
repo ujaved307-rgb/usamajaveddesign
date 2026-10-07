@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
       messages: [{ role: "user", content: wrapJobDescription(jdText) }],
       output_config: {
         format: zodOutputFormat(RoleFitResultSchema),
-        effort: "high",
+        effort: "medium",
       },
     });
 
