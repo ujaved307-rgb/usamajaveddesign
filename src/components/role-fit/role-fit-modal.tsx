@@ -314,7 +314,7 @@ export function RoleFitModal() {
                           Skills that match
                         </span>
                         <div className="mt-3">
-                          <StickerTags items={result.matchedSkills} />
+                          <StickerTags items={result.matchedSkills} uniform />
                         </div>
                       </div>
                     )}

@@ -2,13 +2,13 @@
 
 import { motion, useReducedMotion } from "motion/react";
 
-export function StickerTags({ items }: { items: string[] }) {
+export function StickerTags({ items, uniform = false }: { items: string[]; uniform?: boolean }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
     <div className="flex flex-wrap items-center gap-3">
       {items.map((item, i) => {
-        const filled = i % 3 === 1;
+        const filled = !uniform && i % 3 === 1;
         const duration = 2.4 + (i % 3) * 0.35;
         const delay = (i % 4) * 0.22;
 
