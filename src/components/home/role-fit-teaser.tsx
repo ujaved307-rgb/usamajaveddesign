@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/reveal";
-import { RoleFit } from "@/components/role-fit/role-fit";
+import { RoleFitTrigger } from "@/components/role-fit/role-fit-trigger";
 
 export function RoleFitTeaser() {
   return (
@@ -23,7 +23,7 @@ export function RoleFitTeaser() {
         </Reveal>
         <Reveal delay={0.15}>
           <div className="mt-8 flex justify-center">
-            <RoleFit />
+            <RoleFitTrigger />
           </div>
         </Reveal>
       </div>

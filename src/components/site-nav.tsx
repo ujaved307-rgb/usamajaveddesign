@@ -5,11 +5,13 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav, contact } from "@/lib/data/site";
 import { Magnetic } from "@/components/magnetic";
+import { useRoleFit } from "@/components/role-fit/role-fit-context";
 
 export function SiteNav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { openRoleFit } = useRoleFit();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -53,6 +55,13 @@ export function SiteNav() {
           >
             LinkedIn
           </a>
+          <button
+            type="button"
+            onClick={openRoleFit}
+            className="text-sm font-medium text-ink-2 transition-colors hover:text-ink"
+          >
+            Role Fit Check
+          </button>
           <Magnetic>
             <a
               href={`mailto:${contact.email}`}
@@ -103,6 +112,18 @@ export function SiteNav() {
               <a href={contact.linkedin} target="_blank" rel="noreferrer" className="block py-3 text-lg text-ink">
                 LinkedIn
               </a>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  openRoleFit();
+                }}
+                className="block w-full py-3 text-left text-lg text-ink"
+              >
+                Role Fit Check
+              </button>
             </li>
             <li>
               <a href={`mailto:${contact.email}`} className="block py-3 text-lg text-ink">

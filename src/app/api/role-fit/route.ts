@@ -10,6 +10,7 @@ export const maxDuration = 60;
 
 const MIN_JD_LENGTH = 80;
 const MAX_JD_LENGTH = 15000;
+const FILE_EXTRACTION_TIMEOUT_MS = 20_000;
 
 function getClientKey(request: NextRequest): string {
   return (
@@ -17,6 +18,25 @@ function getClientKey(request: NextRequest): string {
     request.headers.get("x-real-ip") ||
     "unknown"
   );
+}
+
+// pdf-parse's worker-thread based extraction can hang in some serverless
+// environments instead of rejecting — bound it so a stuck file never eats
+// the whole maxDuration budget silently.
+function withTimeout<T>(promise: Promise<T>, ms: number, message: string): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new ExtractionError(message)), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (err) => {
+        clearTimeout(timer);
+        reject(err);
+      }
+    );
+  });
 }
 
 export async function POST(request: NextRequest) {
@@ -36,7 +56,11 @@ export async function POST(request: NextRequest) {
 
     if (file instanceof File && file.size > 0) {
       const { extractTextFromFile } = await import("@/lib/role-fit/extract-text");
-      jdText = await extractTextFromFile(file);
+      jdText = await withTimeout(
+        extractTextFromFile(file),
+        FILE_EXTRACTION_TIMEOUT_MS,
+        "That file is taking too long to read — please try pasting the text instead, or a smaller file."
+      );
     } else if (typeof pastedText === "string" && pastedText.trim().length > 0) {
       jdText = pastedText;
     } else {
@@ -75,7 +99,7 @@ export async function POST(request: NextRequest) {
     const client = new Anthropic();
     const response = await client.messages.parse({
       model: "claude-opus-5-5",
-      max_tokens: 8000,
+      max_tokens: 3000,
       system: buildRoleFitSystemPrompt(),
       messages: [{ role: "user", content: wrapJobDescription(jdText) }],
       output_config: {
