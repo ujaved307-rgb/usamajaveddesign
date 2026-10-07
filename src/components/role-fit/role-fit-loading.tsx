@@ -10,10 +10,11 @@ const PHRASES = [
   "Putting together an honest read…",
 ];
 
-const SPARKLES = [
-  { left: -8, top: -6, delay: 0 },
-  { left: 76, top: 8, delay: 0.6 },
-  { left: 28, top: 92, delay: 1.2 },
+const ORB_SIZE = 112;
+const ORBIT_SIZE = 148;
+const PARTICLES = [
+  { duration: 3.2, delay: 0 },
+  { duration: 4, delay: 0.5 },
 ];
 
 export function RoleFitLoading() {
@@ -28,39 +29,78 @@ export function RoleFitLoading() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-6 py-10 text-center">
-      <div className="relative h-28 w-24">
+    <div className="flex flex-col items-center gap-8 py-12 text-center">
+      <div className="relative" style={{ width: ORBIT_SIZE, height: ORBIT_SIZE }} aria-hidden>
+        {/* slow rotating glow, same language as the homepage AI orb */}
         <motion.div
-          className="absolute inset-0 rounded-[22px] border-2 border-ink/15 bg-cream-2"
-          animate={shouldReduceMotion ? undefined : { scale: [1, 1.03, 1] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+          animate={shouldReduceMotion ? undefined : { rotate: 360 }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          className="absolute rounded-full opacity-70 blur-2xl"
+          style={{
+            inset: (ORBIT_SIZE - ORB_SIZE) / 2 - 10,
+            background:
+              "conic-gradient(from 180deg, var(--accent), transparent 35%, transparent 65%, var(--accent) 100%)",
+          }}
         />
 
-        <div className="absolute inset-x-3 top-4 flex flex-col gap-2">
-          <span className="h-1.5 w-full rounded-full bg-ink/15" />
-          <span className="h-1.5 w-full rounded-full bg-ink/15" />
-          <span className="h-1.5 w-full rounded-full bg-ink/15" />
-          <span className="h-1.5 w-3/5 rounded-full bg-ink/15" />
-        </div>
+        {/* core orb */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            inset: (ORBIT_SIZE - ORB_SIZE) / 2,
+            background:
+              "radial-gradient(circle at 32% 28%, #ffe4cf 0%, var(--accent) 32%, #4a1d0c 74%, #100a06 100%)",
+            boxShadow: "0 22px 48px -16px rgba(232, 90, 40, 0.55), inset 0 -10px 20px rgba(0,0,0,0.5)",
+          }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            top: (ORBIT_SIZE - ORB_SIZE) / 2 + ORB_SIZE * 0.14,
+            left: (ORBIT_SIZE - ORB_SIZE) / 2 + ORB_SIZE * 0.22,
+            width: ORB_SIZE * 0.28,
+            height: ORB_SIZE * 0.18,
+            background: "radial-gradient(circle, rgba(255,255,255,0.9), transparent 70%)",
+            filter: "blur(2px)",
+          }}
+        />
 
+        {/* crisp scanning ring */}
         {!shouldReduceMotion && (
           <motion.div
-            className="absolute inset-x-3 h-[3px] rounded-full bg-accent-strong/80"
-            initial={{ top: "14%" }}
-            animate={{ top: ["14%", "82%", "14%"] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute rounded-full border-2"
+            style={{
+              inset: (ORBIT_SIZE - ORB_SIZE) / 2 - 6,
+              borderColor: "transparent",
+              borderTopColor: "var(--accent-strong)",
+              borderRightColor: "color-mix(in srgb, var(--accent-strong) 35%, transparent)",
+            }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
           />
         )}
 
+        {/* orbiting particles */}
         {!shouldReduceMotion &&
-          SPARKLES.map((s, i) => (
-            <motion.span
+          PARTICLES.map((p, i) => (
+            <motion.div
               key={i}
-              className="absolute h-1.5 w-1.5 rounded-full bg-accent-strong"
-              style={{ left: s.left, top: s.top }}
-              animate={{ opacity: [0, 1, 0], scale: [0.6, 1, 0.6] }}
-              transition={{ duration: 1.8, repeat: Infinity, delay: s.delay, ease: "easeInOut" }}
-            />
+              className="absolute inset-0"
+              animate={{ rotate: 360 }}
+              transition={{ duration: p.duration, repeat: Infinity, ease: "linear", delay: p.delay }}
+            >
+              <span
+                className="absolute rounded-full bg-accent-strong"
+                style={{
+                  top: 0,
+                  left: "50%",
+                  width: 7,
+                  height: 7,
+                  transform: "translateX(-50%)",
+                  boxShadow: "0 0 10px var(--accent-strong)",
+                }}
+              />
+            </motion.div>
           ))}
       </div>
 
