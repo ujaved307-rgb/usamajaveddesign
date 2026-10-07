@@ -71,6 +71,7 @@ export const skillGroups = [
       "Oil & Gas",
       "Real Estate / PropTech",
       "Mortgage & Lending",
+      "Cultural & Visitor Experience",
       "B2B & B2C",
       "Mobile & Web",
       "Digital Transformation",
