@@ -52,6 +52,7 @@ export const skillGroups = [
       "Wireframing",
       "High-Fidelity Prototyping",
       "UX Benchmarking",
+      "Arabic / RTL Interface Design",
     ],
   },
   {
@@ -68,6 +69,8 @@ export const skillGroups = [
       "Banking & Fintech",
       "Aviation",
       "Oil & Gas",
+      "Real Estate / PropTech",
+      "Mortgage & Lending",
       "B2B & B2C",
       "Mobile & Web",
       "Digital Transformation",

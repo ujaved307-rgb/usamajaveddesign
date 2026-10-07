@@ -65,7 +65,7 @@ ${profile.summary}
 ## WHAT HE'S LOOKING FOR
 ${profile.lookingFor}
 
-## WORK EXPERIENCE (verbatim from resume, most recent first)
+## WORK EXPERIENCE (from the resume plus Usama's own direct confirmation, most recent first)
 ${experienceText}
 
 ## PUBLIC CASE STUDIES (the ONLY projects with a real page on this portfolio — link to these by route, never invent a link for anything else)

@@ -1,7 +1,12 @@
-// Full work history, verbatim from the resume. This is the source Virtual
-// Usama draws on for any engagement that does NOT have a public case study
-// page (e.g. Nedbank, Careem Plus, Rogers/Telus) — it must never claim a
-// case-study link exists for these; see projects.ts for what does.
+// Full work history. Primarily verbatim from the resume, with a handful of
+// details (scope/ownership framing, team-lead specifics, named sub-projects)
+// added later from Usama's own direct confirmation in chat rather than the
+// PDF — kept because they're specific, first-person, and consistent with
+// what's already documented elsewhere (case studies, existing bullets), not
+// invented. This is the source Virtual Usama draws on for any engagement
+// that does NOT have a public case study page (e.g. Nedbank, Careem Plus,
+// Rogers/Telus) — it must never claim a case-study link exists for these;
+// see projects.ts for what does.
 
 export interface ExperienceEntry {
   title: string;
@@ -19,10 +24,12 @@ export const experience: ExperienceEntry[] = [
     company: "Accenture",
     location: "Riyadh, Saudi Arabia",
     period: "October 2023 – Present",
-    relatedCaseStudies: ["tasmuqatar", "stckuwait"],
+    relatedCaseStudies: ["tasmuqatar", "stckuwait", "rcrc", "dubaiholding"],
     highlights: [
-      "Led UX strategy and end-to-end design for large-scale digital transformation programs; clients include STC, STC Kuwait, Saudia Airlines, ADNOC, Al Rajhi Bank, Nedbank South Africa, and the Government of Qatar.",
+      "Led UX strategy and end-to-end design for large-scale digital transformation programs; clients include STC, STC Kuwait, Saudia Airlines, ADNOC, Al Rajhi Bank, Nedbank South Africa, Royal Commission for Riyadh City, Dubai Holding Properties, and the Government of Qatar. Functions with full in-house-style product ownership while embedded in these client engagements, in both formal and informal team-lead/practice-lead capacity.",
       "Nedbank South Africa — Apply Hub (Digital Banking Platform): manages and leads a pod of 4 designers building the complete digital banking experience covering credit cards, personal loans, overdrafts, investments, and full account opening journeys for both New-to-Bank and Existing-to-Bank customers. Owns end-to-end product design strategy, design system standards, sprint delivery, and cross-functional alignment across product, engineering, compliance and business teams — navigating NCA compliance, POPIA consent frameworks, DebiCheck mandate states and bureau decisioning logic to translate regulated financial constraints into simple, transparent, trustworthy customer experiences. Mentors designers within the pod.",
+      "Royal Commission for Riyadh City (RCRC): Experience Design Lead across 10+ multi-sector government projects, including the Bawabaty employee experience portal (200+ screens redesigned), a Careers Portal, and a Diplomatic Quarter Events platform — including Arabic-first interface design for RCRC's government workforce. Built design maturity from a low baseline and scaled design adoption and design teams across multiple government initiatives.",
+      "Dubai Holding Properties: won a competitive RFP and led end-to-end UX for a smart resident community mobile platform (service requests, payments, bookings, community engagement), including a smart mortgage/financing integration surfacing personalized mortgage options and bank-partner offers within the property journey — real-estate/proptech and mortgage-adjacent product design.",
       "STC Telecom (national telecom leader, Saudi Arabia): designed enterprise UX for STC's digital transformation initiative, including self-service portals, B2B account management flows, and AI-assisted customer support interfaces, improving task completion rates and reducing call-deflection dependency across digital channels.",
       "TASMU Smart Nation Platform 1.0 & 2.0 (Government of Qatar / MCIT): delivered UX across user journeys, Cognitive AI interfaces, Digital Twin experiences, and ICCC (Integrated Command & Control Centre); recognized with the iF Design Award 2026 and Red Dot Design Award.",
       "Designed agentic and AI-powered UX flows, conversational interfaces, and intelligent dashboards, translating complex AI system behaviours into intuitive, trustworthy user experiences.",
@@ -40,6 +47,8 @@ export const experience: ExperienceEntry[] = [
     period: "May 2021 – September 2023",
     highlights: [
       "Designed financial products and regulated digital experiences for Canadian market clients across banking, telecom, and media, including Rogers Canada, Telus Canada, and Paradigm Quest.",
+      "Paradigm Quest (Canadian mortgage/lending technology): designed the underwriting web application portal supporting the mortgage underwriting process.",
+      "Formally and informally led a design team of 8–10 designers in a team-lead/practice-lead capacity, alongside individual project delivery.",
       "Revamped a major news channel's website and mobile app, improving usability and increasing user engagement by 25%.",
       "Enhanced B2B and B2C telecom platforms through targeted UX improvements, reducing user error rates by 18%.",
       "Conducted usability testing, persona development, and competitive analysis to inform product strategy and roadmap decisions.",
@@ -51,7 +60,7 @@ export const experience: ExperienceEntry[] = [
     location: "Lahore, Pakistan",
     period: "August 2020 – April 2021",
     highlights: [
-      "Designed end-to-end UX for Careem Plus (an Uber company), a subscription loyalty service for UAE users, covering discovery, onboarding, and retention flows.",
+      "Designed end-to-end UX for Careem Plus (an Uber company), a subscription loyalty service for UAE users, covering discovery, onboarding, and retention flows. Functioned with full in-house-style product ownership while embedded at VentureDive, in a team-lead/practice-lead capacity.",
       "Conducted competitive analysis, journey mapping, and rapid prototyping for new feature rollouts; boosted customer retention by 12% within Q1 post-launch.",
     ],
   },
