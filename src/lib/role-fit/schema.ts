@@ -17,7 +17,7 @@ export const RoleFitResultSchema = z.object({
     .min(1)
     .max(5)
     .describe(
-      "1-5 short bullet points (under 20 words each), each tied directly to something the job description actually asked for (a specific skill, responsibility, or qualification it named), paired with SPECIFIC, REAL evidence from the candidate's background that meets it — e.g. 'JD wants X — he's done Y'. Prioritize the JD's own stated requirements over generic strengths that aren't things this JD asked for. Never invent experience that isn't in the provided background."
+      "1-5 short bullet points (under 20 words each), each tied directly to something the job description actually asked for (a specific skill, responsibility, or qualification it named), paired with SPECIFIC, REAL evidence from the candidate's background that meets it. Write each one as a natural, direct statement of his real experience — vary the sentence construction bullet to bullet; never use a fixed template phrase (e.g. don't start every bullet the same way, and never literally write 'JD wants' or 'the JD asks for'). Prioritize the JD's own stated requirements over generic strengths that aren't things this JD asked for. Never invent experience that isn't in the provided background."
     ),
   gaps: z
     .array(z.string())

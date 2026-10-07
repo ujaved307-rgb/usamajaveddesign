@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Magnetic } from "@/components/magnetic";
 import { contact } from "@/lib/data/site";
-import { ScoreRing } from "@/components/role-fit/score-ring";
 import { RoleFitLoading } from "@/components/role-fit/role-fit-loading";
 import { useRoleFit } from "@/components/role-fit/role-fit-context";
 import { MAX_FILE_BYTES } from "@/lib/role-fit/constants";
@@ -286,12 +285,9 @@ export function RoleFitModal() {
                       Role Fit Check
                     </span>
 
-                    <div className="mt-5 flex items-center gap-5">
-                      <ScoreRing score={result.matchScore} />
-                      <p className="font-display text-xl font-semibold leading-snug tracking-tight text-balance">
-                        {result.headline}
-                      </p>
-                    </div>
+                    <p className="font-display mt-4 text-2xl font-semibold leading-snug tracking-tight text-balance">
+                      {result.headline}
+                    </p>
 
                     {result.strengths.length > 0 && (
                       <div className="mt-7">
