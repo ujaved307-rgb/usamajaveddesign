@@ -33,6 +33,13 @@ export const tasmu: CaseStudy = {
   },
   sections: [
     {
+      id: "team",
+      kicker: "Behind the Scenes",
+      blocks: [
+        { type: "image", src: "/images/tasmu/team-photo.jpg", alt: "The team working through TASMU platform design in a workshop session" },
+      ],
+    },
+    {
       id: "at-a-glance",
       kicker: "00 — At a Glance",
       heading: "What I designed, my role, and the outcome",
@@ -177,9 +184,9 @@ export const tasmu: CaseStudy = {
             "Design system foundation — components, patterns, typography and visual guidelines established before high-fidelity design, to support a unified, extensible platform",
           ],
         },
-        { type: "image", src: "/images/tasmu/journey-narrative.webp", alt: "TASMU 2.0 platform phase 1 prototype journey narrative", wide: true },
-        { type: "image", src: "/images/tasmu/flow-explore-platform.png", alt: "TASMU platform flow — exploring solutions, services catalogue and use cases", wide: true },
-        { type: "image", src: "/images/tasmu/flow-device-onboarding.png", alt: "TASMU device onboarding and AI lifecycle management flow", wide: true },
+        { type: "image", src: "/images/tasmu/journey-narrative.jpg", alt: "TASMU 2.0 platform phase 1 prototype journey narrative", wide: true },
+        { type: "image", src: "/images/tasmu/flow-explore-platform.jpg", alt: "TASMU platform flow — exploring solutions, services catalogue and use cases", wide: true },
+        { type: "image", src: "/images/tasmu/flow-device-onboarding.jpg", alt: "TASMU device onboarding and AI lifecycle management flow", wide: true },
         { type: "image", src: "https://framerusercontent.com/images/SyXSUhyJBIA4OU6ESW4wlW4MK8.png", alt: "TASMU design system foundation: components, patterns and typography", wide: true },
       ],
     },
