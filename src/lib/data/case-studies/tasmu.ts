@@ -39,6 +39,7 @@ export const tasmu: CaseStudy = {
       blocks: [
         {
           type: "columns",
+          widths: [1, 1.3],
           blocks: [
             {
               type: "list",
@@ -52,6 +53,7 @@ export const tasmu: CaseStudy = {
               type: "image",
               src: "/images/tasmu/team-photo.jpg",
               alt: "The team working through TASMU platform design in a workshop session",
+              portrait: true,
             },
           ],
         },

@@ -3,12 +3,12 @@ export type Block =
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[] }
   | { type: "quote"; text: string; attribution?: string }
-  | { type: "image"; src: string; alt: string; caption?: string; wide?: boolean }
+  | { type: "image"; src: string; alt: string; caption?: string; wide?: boolean; portrait?: boolean }
   | { type: "gallery"; images: { src: string; alt: string }[] }
   | { type: "stats"; items: { value: string; label: string }[] }
   | { type: "statement"; text: string }
-  /** Two blocks side by side on larger screens, stacked on mobile. */
-  | { type: "columns"; blocks: [Block, Block] };
+  /** Two blocks side by side on larger screens, stacked on mobile. `widths` is a [left, right] fr ratio — omit for an even 1:1 split. */
+  | { type: "columns"; blocks: [Block, Block]; widths?: [number, number] };
 
 export interface CaseStudySection {
   id: string;

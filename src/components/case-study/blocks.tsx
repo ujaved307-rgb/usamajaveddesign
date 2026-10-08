@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { Block } from "@/lib/types";
 import { StatValue } from "@/components/stat-value";
 import { RevealImage } from "@/components/reveal-image";
@@ -78,10 +79,10 @@ export function BlockRenderer({
           <RevealImage
             src={block.src}
             alt={block.alt}
-            aspect={block.wide ? "aspect-[2/1]" : "aspect-[16/10]"}
+            aspect={block.portrait ? "aspect-[8/9]" : block.wide ? "aspect-[2/1]" : "aspect-[16/10]"}
             bgClassName="bg-transparent"
             roundedClassName="rounded-[20px]"
-            sizes="(min-width: 1024px) 1000px, 100vw"
+            sizes={nested ? "(min-width: 1024px) 600px, 100vw" : "(min-width: 1024px) 1000px, 100vw"}
           />
           {block.caption && (
             <figcaption className="mt-2 text-sm opacity-60">{block.caption}</figcaption>
@@ -106,14 +107,19 @@ export function BlockRenderer({
         </div>
       );
 
-    case "columns":
+    case "columns": {
+      const [left, right] = block.widths ?? [1, 1];
       return (
-        <div className="grid items-center gap-8 sm:grid-cols-2">
+        <div
+          className="grid items-center gap-8 sm:[grid-template-columns:var(--col-left)_var(--col-right)]"
+          style={{ "--col-left": `${left}fr`, "--col-right": `${right}fr` } as CSSProperties}
+        >
           {block.blocks.map((b, i) => (
             <BlockRenderer key={i} block={b} invert={invert} nested />
           ))}
         </div>
       );
+    }
 
     default:
       return null;
