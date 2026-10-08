@@ -6,7 +6,9 @@ export type Block =
   | { type: "image"; src: string; alt: string; caption?: string; wide?: boolean }
   | { type: "gallery"; images: { src: string; alt: string }[] }
   | { type: "stats"; items: { value: string; label: string }[] }
-  | { type: "statement"; text: string };
+  | { type: "statement"; text: string }
+  /** Two blocks side by side on larger screens, stacked on mobile. */
+  | { type: "columns"; blocks: [Block, Block] };
 
 export interface CaseStudySection {
   id: string;

@@ -33,23 +33,26 @@ export const tasmu: CaseStudy = {
   },
   sections: [
     {
-      id: "team",
-      kicker: "Behind the Scenes",
-      blocks: [
-        { type: "image", src: "/images/tasmu/team-photo.jpg", alt: "The team working through TASMU platform design in a workshop session" },
-      ],
-    },
-    {
       id: "at-a-glance",
       kicker: "00 — At a Glance",
       heading: "What I designed, my role, and the outcome",
       blocks: [
         {
-          type: "list",
-          items: [
-            "What I designed — User Journeys, Cognitive AI interfaces, Digital Twin experiences, and the Integrated Command & Control Centre (ICCC)",
-            "My role — Product & Experience Design Lead",
-            "The outcome — 36+ products and services unified into one national platform, cutting design time by 90% through AI-driven workflows",
+          type: "columns",
+          blocks: [
+            {
+              type: "list",
+              items: [
+                "What I designed — User Journeys, Cognitive AI interfaces, Digital Twin experiences, and the Integrated Command & Control Centre (ICCC)",
+                "My role — Product & Experience Design Lead",
+                "The outcome — 36+ products and services unified into one national platform, cutting design time by 90% through AI-driven workflows",
+              ],
+            },
+            {
+              type: "image",
+              src: "/images/tasmu/team-photo.jpg",
+              alt: "The team working through TASMU platform design in a workshop session",
+            },
           ],
         },
       ],

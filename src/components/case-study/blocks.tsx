@@ -2,7 +2,16 @@ import type { Block } from "@/lib/types";
 import { StatValue } from "@/components/stat-value";
 import { RevealImage } from "@/components/reveal-image";
 
-export function BlockRenderer({ block, invert = false }: { block: Block; invert?: boolean }) {
+export function BlockRenderer({
+  block,
+  invert = false,
+  nested = false,
+}: {
+  block: Block;
+  invert?: boolean;
+  /** True when rendered inside a "columns" block — narrower, so multi-column sub-layouts (e.g. "list") collapse to one. */
+  nested?: boolean;
+}) {
   const dotColor = invert ? "bg-accent" : "bg-ink";
   const quoteBorder = invert ? "border-accent" : "border-ink";
 
@@ -26,7 +35,7 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
 
     case "list":
       return (
-        <ul className="grid gap-3 sm:grid-cols-2">
+        <ul className={`grid gap-3 ${nested ? "" : "sm:grid-cols-2"}`}>
           {block.items.map((item, i) => (
             <li key={i} className="flex gap-3 text-base leading-relaxed opacity-90">
               <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${dotColor}`} aria-hidden />
@@ -93,6 +102,15 @@ export function BlockRenderer({ block, invert = false }: { block: Block; invert?
               roundedClassName="rounded-[20px]"
               sizes="(min-width: 1024px) 1000px, 100vw"
             />
+          ))}
+        </div>
+      );
+
+    case "columns":
+      return (
+        <div className="grid items-center gap-8 sm:grid-cols-2">
+          {block.blocks.map((b, i) => (
+            <BlockRenderer key={i} block={b} invert={invert} nested />
           ))}
         </div>
       );
