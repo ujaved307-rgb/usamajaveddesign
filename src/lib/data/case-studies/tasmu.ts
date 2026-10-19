@@ -17,6 +17,9 @@ export const tasmu: CaseStudy = {
   colorSoft: "#EFEBFD",
   award: "iF Design Award 2026 & Red Dot Design Award — TASMU, Government of Qatar (MCIT)",
   awardLogos: ["/logos/if-award.png", "/logos/reddot.png"],
+  awardLinks: {
+    "Red Dot Design Award": "https://www.red-dot.org/project/envisioning-smart-city-solutions-for-qatar-90698",
+  },
   impact: [
     { value: "90%", label: "reduction in design time using AI-driven workflows" },
     { value: "70%", label: "faster delivery cycles" },

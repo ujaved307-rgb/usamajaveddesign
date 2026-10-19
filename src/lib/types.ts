@@ -53,6 +53,8 @@ export interface CaseStudy {
   award?: string;
   /** Real award-org logo marks (e.g. Red Dot, iF Design Award) shown on the card thumbnail. */
   awardLogos?: string[];
+  /** Maps an award name to its official results/listing URL. Wherever that exact name appears in `award` or `cardTagline` on the case-study hero, it renders as a link — the underlying strings stay plain text everywhere else they're reused (cards, page metadata). */
+  awardLinks?: Record<string, string>;
   /** Problem → Insight → Approach → Decision → Outcome → Impact process bar. */
   designThinking?: DesignThinkingContent;
 }

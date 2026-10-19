@@ -1,7 +1,34 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import type { CaseStudy } from "@/lib/types";
 import { Reveal } from "@/components/reveal";
 import { RevealImage } from "@/components/reveal-image";
+
+// Turns an award name into a link wherever it appears verbatim in `text`,
+// without changing the stored data — `cardTagline` in particular is reused
+// as a plain string elsewhere (project cards, page metadata) where it must
+// stay a string, so the linking happens only in this component's render.
+function withAwardLinks(text: string, links?: Record<string, string>): ReactNode {
+  const names = links ? Object.keys(links) : [];
+  if (names.length === 0) return text;
+
+  const pattern = new RegExp(`(${names.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`, "g");
+  return text.split(pattern).map((part, i) =>
+    links![part] ? (
+      <a
+        key={i}
+        href={links![part]}
+        target="_blank"
+        rel="noreferrer"
+        className="underline underline-offset-2 hover:opacity-80"
+      >
+        {part}
+      </a>
+    ) : (
+      <span key={i}>{part}</span>
+    )
+  );
+}
 
 export function CaseStudyHero({ project }: { project: CaseStudy }) {
   return (
@@ -45,7 +72,7 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
               )}
               {project.award && (
                 <p className="text-base font-semibold text-ink">
-                  <span aria-hidden>🏆</span> {project.award}
+                  <span aria-hidden>🏆</span> {withAwardLinks(project.award, project.awardLinks)}
                 </p>
               )}
             </div>
@@ -59,7 +86,9 @@ export function CaseStudyHero({ project }: { project: CaseStudy }) {
             <span className="block text-xs font-semibold uppercase tracking-wide text-ink-3">
               Overview
             </span>
-            <p className="mt-2 text-base text-ink-2">{project.cardTagline}</p>
+            <p className="mt-2 text-base text-ink-2">
+              {withAwardLinks(project.cardTagline, project.awardLinks)}
+            </p>
           </div>
           <div>
             <span className="block text-xs font-semibold uppercase tracking-wide text-ink-3">
