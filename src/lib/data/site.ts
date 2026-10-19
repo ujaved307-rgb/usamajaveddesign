@@ -176,7 +176,7 @@ export const strategyAi = {
     ],
   },
   tools: {
-    heading: "Tools I Use",
+    heading: "Softwares I Use",
     items: [
       { name: "ChatGPT", use: "Research, strategy, synthesis, product thinking" },
       { name: "Claude", logo: "/logos/claude.svg", use: "Research, strategy, synthesis, product thinking" },
@@ -193,7 +193,7 @@ export const strategyAi = {
     ],
   },
   applied: {
-    heading: "Applied AI in Real Projects",
+    heading: "Vibecoded Solutions and Applied AI in Real Projects",
     cases: [
       {
         title: "Humain AI Platform & Etisalat UAE",
